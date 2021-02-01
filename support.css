@@ -1,13 +1,15 @@
-body * {
+* {
     visibility: hidden;
-}
-body > div:not(#beacon-container):not(#docsSearch):not(.fancybox-container) {
-    pointer-events: none;
 }
 
 body.all-ready * {
     visibility: visible;
 }
+
+body > div:not(#beacon-container):not(#docsSearch):not(.fancybox-container) {
+    pointer-events: none;
+}
+
 #docsSearch {
     background: #F5F5F5;
     border-bottom: 1px solid #DFDFDF;
