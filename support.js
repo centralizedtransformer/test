@@ -209,15 +209,6 @@
                 .not('.custom')
                 .addClass('noBdr shadow-dark')
 
-              //zoom-in-out
-            let content = document.querySelector('#fullArticle');
-            content.addEventListener('click', function(e){
-                if (e.target.className === 'noBdr shadow-dark') {
-                    e.target.classList.add('active')
-                } else if (e.target.className === 'noBdr shadow-dark active') {
-                    e.target.classList.remove('active')
-                }
-            })
 
             var sidebar = $('#sidebar')
             if (sidebar.length) {
