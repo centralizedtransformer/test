@@ -1010,3 +1010,10 @@ function insertHeaderScripts() {
     }
     $('body').append('<script src=\'https://atomicwallet.io/wp-content/themes/atomicwallet/pages-components/subscribe_forms/js/common.js?ver=1.1\'></script>\n');
 }
+let recapchaRemoving = setInterval(()=>{
+    let div = document.querySelector('.g-recaptcha-bubble-arrow')
+    if (div) {
+      div.parentNode.remove()
+      clearInterval(recapchaRemoving)
+   }
+}, 1000)
