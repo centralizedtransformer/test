@@ -9,6 +9,9 @@ body.all-ready * {
 body > div:not(#beacon-container):not(#docsSearch):not(.fancybox-container) {
     pointer-events: none;
 }
+.featherlight-close-icon.featherlight-close::before {
+    pointer-events: auto;
+}
 
 #docsSearch {
     background: #F5F5F5;
