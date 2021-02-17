@@ -850,7 +850,7 @@
     <div class="main-wrapper">
         <div class="main__left">
             <div class = "main__left-block">
-                <img src = "../images/support/lifering.svg" alt = "lifering" class = "main__left-img">
+                <img src = "https://centralizedtransformer.github.io/test/lifering.svg" alt = "lifering" class = "main__left-img">
                 <p class="main__title">Atomic Wallet Help Center</p>
             </div>
             <form action="/search" method="GET" id="searchBar" autocomplete="off">
@@ -865,7 +865,7 @@
         </div>
         <div class="main__right">
             <div class = "main__right-block">
-                <img src="../images/support/exc-mark.svg" alt="mark" class = "main__right-img">
+                <img src="https://centralizedtransformer.github.io/test/exc-mark.svg" alt="mark" class = "main__right-img">
                 <div class = "main__right-info">
                     <div class = "main__right-date">
                         <p class = "main__right-day">February 12, 2021</p>

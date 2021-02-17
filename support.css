@@ -1025,7 +1025,7 @@ img.category-icon {
         text-align: center;
     }
     .main__right {
-        background-image:  url('../images/support/bg-exc-mark.svg');
+        background-image:  url('https://centralizedtransformer.github.io/test/bg-exc-mark.svg');
         background-position: 2% 50%;
         background-origin: border-box;
         background-repeat: no-repeat;
