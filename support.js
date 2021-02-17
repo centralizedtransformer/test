@@ -871,14 +871,11 @@
                         <p class = "main__right-day">February 12, 2021</p>
                         <p class = "main__right-time">Friday, @ 03:25 UTC</p>
                     </div>
-                    <p class = "main__right-head">Exchanging ADA pairs is currently unavailable for USA customers.</p>
+                    <p class = "main__right-head">We're facing a high volume of customer requests</p>
                 </div>
             </div>
             <div class = "main__right-text">
-                Please be assured that sending and receiving ADA is still fully operational. Your funds are not at risk.
-            </div>
-            <div class = "main__right-text">
-                We are currently working with our partners to restore availability as soon as possible. We appreciate your patience.
+                We experience a massive overload with requests at the moment. Our support team works tirelessly to answer all your messages, however, the waiting time can take up to 24h. We will do our best to answer all the requests and we ask for your understanding.
             </div>
         </div>
     </div>
