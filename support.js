@@ -846,14 +846,16 @@
             </div>
         </div>
     </div>
-<section class="main">
+    <section class="main">
     <div class="main-wrapper">
         <div class="main__left">
-            <h1 class="main__title">Atomic Wallet Help Center</h1>
-            <p class="main__description">Common Questions and Blockchain Education</p>
+            <div class = "main__left-block">
+                <img src = "../images/support/lifering.svg" alt = "lifering" class = "main__left-img">
+                <p class="main__title">Atomic Wallet Help Center</p>
+            </div>
             <form action="/search" method="GET" id="searchBar" autocomplete="off">
 
-                <input type="text" name="query" title="search-query" class="search-query" placeholder="Search the knowledge base" aria-labelledby="Search the knowledge base" value="">
+                <input type="text" name="query" title="search-query" class="search-query" placeholder="How we can help you" aria-labelledby="Search the knowledge base" value="">
                 <div id="serp-dd" style="display:none;">
                     <ul class="result"></ul>
                 </div>
@@ -862,7 +864,22 @@
             </form>
         </div>
         <div class="main__right">
-            <img src="https://atomicwallet.io/wp-content/themes/atomicwallet/images/icons/support/atomic-man.svg?ver=1.1" alt="" class="main__img">
+            <div class = "main__right-block">
+                <img src="../images/support/exc-mark.svg" alt="mark" class = "main__right-img">
+                <div class = "main__right-info">
+                    <div class = "main__right-date">
+                        <p class = "main__right-day">February 12, 2021</p>
+                        <p class = "main__right-time">Friday, @ 03:25 UTC</p>
+                    </div>
+                    <p class = "main__right-head">Exchanging ADA pairs is currently unavailable for USA customers.</p>
+                </div>
+            </div>
+            <div class = "main__right-text">
+                Please be assured that sending and receiving ADA is still fully operational. Your funds are not at risk.
+            </div>
+            <div class = "main__right-text">
+                We are currently working with our partners to restore availability as soon as possible. We appreciate your patience.
+            </div>
         </div>
     </div>
 </section>
