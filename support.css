@@ -624,6 +624,7 @@ section {
     width: 100%;
     max-width: initial !important;
     display: flex;
+    justify-content: center;
     padding: 5% 10%;
     box-sizing: border-box;
     -webkit-padding-before: 100px !important;
@@ -631,7 +632,7 @@ section {
 .main__left {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
     width: 50%;
     padding-right: 30px;
 }
@@ -659,12 +660,13 @@ section {
 .main__right {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     background-color: #EAF6FF;
     box-sizing: border-box;
     width: 50%;
     border-radius: 4px;
     /* margin-top: 40px; */
-    padding: 32px 20px 67px 46px;
+    padding: 32px 20px 50px 46px;
 }
 .main__right-block {
     display: flex;
@@ -961,7 +963,6 @@ img.category-icon {
         width: 100%;
     }
   #searchBar {
-      margin-bottom: 20px;
     -webkit-margin-before: 0px !important;
   }
 }
