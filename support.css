@@ -309,7 +309,7 @@ ul.nav.nav-list li {
     width: 100%;
 }
 .body--article #searchBar {
-    transform: translateY(50px);
+    transform: translateY(0px);
 }
 .body--article #searchBar input {
     border-color: transparent !important;
