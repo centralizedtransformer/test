@@ -1272,8 +1272,9 @@ img.category-icon {
 }
 @media screen and (max-width: 500px) {
     .main {
-        height: auto;
+        /* height: auto; */
         padding: 0 15px;
+        /* max-height: 800px; */
     }
     .main__right-day {
         white-space: nowrap;
