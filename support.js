@@ -875,7 +875,7 @@
                 </div>
             </div>
             <div class = "main__right-text">
-                We experience a massive overload with requests at the moment. Our support team works tirelessly to answer all your messages, however, the waiting time can take up to 24h. We will do our best to answer all the requests and we ask for your understanding.
+                We experience a massive overload with requests at the moment. Our support team works tirelessly to answer all your messages, however, the waiting time can take up to 72h. We will do our best to answer all the requests and we ask for your understanding.
             </div>
         </div>
     </div>
