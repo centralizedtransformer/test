@@ -1105,6 +1105,9 @@ img.category-icon {
     .body--article .main {
         height: 250px;
     }
+    body.not-home body--article .main {
+    height: 300px;
+    }
     .body--article .main__title {
         display: block;
         width: auto;
