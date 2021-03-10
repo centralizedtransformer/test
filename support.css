@@ -6,7 +6,7 @@ body.all-ready * {
     visibility: visible;
 }
 
-body > div:not(#beacon-container):not(#docsSearch):not(.fancybox-container):not(.featherlight) {
+body > div:not(#beacon-container):not(#docsSearch):not(.fancybox-container):not(.featherlight):not(.header-mob) {
     pointer-events: none;
 }
 .featherlight-close-icon.featherlight-close::before {
