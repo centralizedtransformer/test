@@ -868,8 +868,8 @@
                 <img src="https://centralizedtransformer.github.io/test/exc-mark.svg" alt="mark" class = "main__right-img">
                 <div class = "main__right-info">
                     <div class = "main__right-date">
-                        <p class = "main__right-day">February 12, 2021</p>
-                        <p class = "main__right-time">Friday, @ 03:25 UTC</p>
+                        <!--<p class = "main__right-day">February 12, 2021</p>
+                        <p class = "main__right-time">Friday, @ 03:25 UTC</p>-->
                     </div>
                     <p class = "main__right-head">We're facing a high volume of customer requests</p>
                 </div>
