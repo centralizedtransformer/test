@@ -1103,7 +1103,7 @@ img.category-icon {
         transform: translateY(120px);
     }
     .body--article .main {
-        height: 250px;
+        height: 310px;
     }
     body.not-home body--article .main {
     height: 300px;
