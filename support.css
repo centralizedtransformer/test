@@ -288,7 +288,7 @@ ul.nav.nav-list li {
     z-index: 9 !important;
 }
 .body--article #contentArea {
-    padding-top: 80px !important;
+    padding-top: 20px !important;
 }
 .body--article #main-content {
     background: none !important;
@@ -309,7 +309,7 @@ ul.nav.nav-list li {
     width: 100%;
 }
 .body--article #searchBar {
-    transform: translateY(0px);
+    transform: translateY(-15px);
 }
 .body--article #searchBar input {
     border-color: transparent !important;
