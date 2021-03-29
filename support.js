@@ -570,49 +570,49 @@
                         <span class="header__link">Buy Crypto</span>
                         <img class="header__arrow" src="https://atomicwallet.io/wp-content/themes/atomicwallet/pages-components/subscribe_forms/img/icons/arrow-dropdown.svg" alt="">
                         <ul class="header__sub-list">
-                            <li class="header__sub-item"><a href="/buy-bitcoin" class="header__sub-link">
+                            <li class="header__sub-item"><a href="https://atomicwallet.io/buy-bitcoin" class="header__sub-link">
                                     <svg class="header__link-icon">
                                         <use href="#sprite-btc"></use>
                                     </svg>
                                     Buy Bitcoin
                                 </a></li>
-                            <li class="header__sub-item"><a href="/buy-ethereum" class="header__sub-link">
+                            <li class="header__sub-item"><a href="https://atomicwallet.io/buy-ethereum" class="header__sub-link">
                                     <svg class="header__link-icon">
                                         <use href="#sprite-eth"></use>
                                     </svg>
                                     Buy Ethereum
                                 </a></li>
-                            <li class="header__sub-item"><a href="/buy-ripple" class="header__sub-link">
+                            <li class="header__sub-item"><a href="https://atomicwallet.io/buy-ripple" class="header__sub-link">
                                     <svg class="header__link-icon">
                                         <use href="#sprite-xrp"></use>
                                     </svg>
                                     Buy Ripple
                                 </a></li>
-                            <li class="header__sub-item"><a href="/buy-litecoin" class="header__sub-link">
+                            <li class="header__sub-item"><a href="https://atomicwallet.io/buy-litecoin" class="header__sub-link">
                                     <svg class="header__link-icon">
                                         <use href="#sprite-ltc"></use>
                                     </svg>
                                     Buy Litecoin
                                 </a></li>
-                            <li class="header__sub-item"><a href="/buy-bitcoin-cash" class="header__sub-link">
+                            <li class="header__sub-item"><a href="https://atomicwallet.io/buy-bitcoin-cash" class="header__sub-link">
                                     <svg class="header__link-icon">
                                         <use href="#sprite-bch"></use>
                                     </svg>
                                     Buy Bitcoin Cash
                                 </a></li>
-                            <li class="header__sub-item"><a href="/buy-tron" class="header__sub-link">
+                            <li class="header__sub-item"><a href="https://atomicwallet.io/buy-tron" class="header__sub-link">
                                     <svg class="header__link-icon">
                                         <use href="#sprite-trx"></use>
                                     </svg>
                                     Buy Tron
                                 </a></li>
-                            <li class="header__sub-item"><a href="/buy-stellar" class="header__sub-link">
+                            <li class="header__sub-item"><a href="https://atomicwallet.io/buy-stellar" class="header__sub-link">
                                     <svg class="header__link-icon">
                                         <use href="#sprite-xlm"></use>
                                     </svg>
                                     Buy Stellar
                                 </a></li>
-                            <li class="header__sub-item"><a href="/buy-aave-lend" class="header__sub-link">
+                            <li class="header__sub-item"><a href="https://atomicwallet.io/buy-aave-lend" class="header__sub-link">
                                     <svg class="header__link-icon">
                                         <use href="#sprite-aave"></use>
                                     </svg>
