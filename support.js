@@ -855,7 +855,7 @@
             </div>
             <form action="/search" method="GET" id="searchBar" autocomplete="off">
 
-                <input type="text" name="query" title="search-query" class="search-query" placeholder="How we can help you" aria-labelledby="Search the knowledge base" value="">
+                <input type="text" name="query" title="search-query" class="search-query" placeholder="How can we help you?" aria-labelledby="Search the knowledge base" value="">
                 <div id="serp-dd" style="display:none;">
                     <ul class="result"></ul>
                 </div>
