@@ -12,6 +12,22 @@
             parent.appendChild(link);
         }
     })
+
+    //smooth scroll to anchors
+    document.querySelectorAll( 'a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            let id = anchor.getAttribute('href')
+            let pos = document.querySelector(id).getClientRects()[0].y - 100 + window.pageYOffset
+
+            window.scrollTo({
+                behavior: 'smooth',
+                top: pos
+            });
+        });
+    });
+    
     function customScript() {
         if (document.querySelector('#docsSearch')){document.querySelector('#docsSearch').remove();}
         var siteRoot = 'https://atomicwallet.io';
