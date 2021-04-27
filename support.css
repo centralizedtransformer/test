@@ -51,6 +51,19 @@ body > div:not(#beacon-container):not(#docsSearch):not(.fancybox-container):not(
     height: 14px;
     width: 16px;
 }
+.header__sub-badge {
+    margin-left: 10px;
+	font-weight: bold;
+	font-size: 7px;
+	line-height: initial;
+	padding: 4px 7px;
+	text-align: center;
+	letter-spacing: 0.09em;
+	text-transform: uppercase;
+	background: linear-gradient(180deg, #E82323 0%, #CA1313 99.99%, rgba(234, 25, 25, 0) 100%);
+	border-radius: 30px;
+	color: #fff;
+}
 ul, ol {
     padding: unset;
     margin: unset;
