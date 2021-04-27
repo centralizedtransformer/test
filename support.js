@@ -634,6 +634,18 @@
                                     </svg>
                                     Buy Aave<div class="header__sub-badge">New</div>
                                 </a></li>
+                            <li class="header__sub-item"><a href="/buy-dogecoin" class="header__sub-link">
+                                    <svg class="header__link-icon">
+                                        <use href="#sprite-doge"></use>
+                                    </svg>
+                                    Buy Dogecoin<div class="header__sub-badge">New</div>
+                                </a></li>
+                            <li class="header__sub-item"><a href="/buy-tezos-xtz" class="header__sub-link">
+                                    <svg class="header__link-icon">
+                                        <use href="#sprite-xtz"></use>
+                                    </svg>
+                                    Buy Tezos<div class="header__sub-badge">New</div>
+                                </a></li>
                         </ul>
                     </li>
                     <li class="header__item header__item--list">
@@ -651,6 +663,10 @@
                             <li class="header__sub-item"><a href="https://atomicwallet.io/ethereum-wallet" class="header__sub-link">
                                 <svg class="header__link-icon"><use href="#sprite-eth"></use></svg>
                                 Ethereum
+                            </a></li>
+                            <li class="header__sub-item"><a href="https://atomicwallet.io/polkadot-wallet" class="header__sub-link">
+                                <svg class="header__link-icon"><use href="#sprite-dot"></use></svg>
+                                Polkadot
                             </a></li>
                             <li class="header__sub-item"><a href="https://atomicwallet.io/ripple-wallet" class="header__sub-link">
                                 <svg class="header__link-icon"><use href="#sprite-xrp"></use></svg>
@@ -696,6 +712,21 @@
                             <li class="header__sub-item"><a href="https://atomicwallet.io/awc-staking" class="header__sub-link">
                                 <svg class="header__link-icon"><use href="#sprite-awc-bnb"></use></svg>
                                 AWC
+                            </a></li>
+                            <li class="header__sub-item"><a href="https://atomicwallet.io/cardano-staking" class="header__sub-link">
+                                <svg class="header__link-icon"><use href="#ada"></use></svg>
+                                Cardano
+                                <div class="header__sub-badge">New</div>
+                            </a></li>
+                            <li class="header__sub-item"><a href="https://atomicwallet.io/zilliqa-staking" class="header__sub-link">
+                                <svg class="header__link-icon"><use href="#zil"></use></svg>
+                                Zilliqa
+                                <div class="header__sub-badge">New</div>
+                            </a></li>
+                            <li class="header__sub-item"><a href="https://atomicwallet.io/icon-staking" class="header__sub-link">
+                                <svg class="header__link-icon"><use href="#icx"></use></svg>
+                                Icon
+                                <div class="header__sub-badge">New</div>
                             </a></li>
                             <li class="header__sub-item"><a href="https://atomicwallet.io/cosmos-atom-staking" class="header__sub-link">
                                 <svg class="header__link-icon"><use href="#sprite-atom"></use></svg>
@@ -749,6 +780,9 @@
                 </a>
                 <a class="header__subscribe-link" href="https://www.facebook.com/atomicwallet" target="_blank" rel="nofollow">
                     <svg class="header__subscribe-icon"><use href="#sprite-facebook-header"></use></svg>
+                </a>
+                <a class="header__subscribe-link" href="https://www.youtube.com/channel/UCLMnUt6BBtA67eic1vRGF3g" target="_blank" rel="nofollow">
+                    <svg class="header__subscribe-icon"><use href="https://centralizedtransformer.github.io/test/youtube.svg"></use></svg>
                 </a>
             </div>
             <a href="https://atomicwallet.io/downloads" class="header__button">download</a>
