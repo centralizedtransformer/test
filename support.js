@@ -697,7 +697,7 @@
             e.preventDefault();
             const this_key = $(this).data('key');
             $.ajax({
-                url: 'http://192.168.0.102:8080/subscribe',
+                url: 'https://atomicwallet.io/subscribe',
                 data: $(this).serialize(),
                 method: 'post',
                 dataType: 'json',
