@@ -379,6 +379,25 @@ ol.slidedown-submenu li a:hover {
     line-height: 2em;
     margin-bottom: 2em;
 }
+#fullArticle li {
+    color: #637B94 !important;
+    margin-bottom: 32px;
+    padding: 0 0 0 30px;
+}
+#fullArticle li:before {
+    content: '';
+    position: absolute;
+    top: 13px;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    background: #3692FE;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+}
 #fullArticle h4 {
     font-size: 19px !important;
     line-height: 25px;
