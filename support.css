@@ -383,6 +383,7 @@ ol.slidedown-submenu li a:hover {
     color: #637B94 !important;
     margin-bottom: 32px;
     padding: 0 0 0 30px;
+    position: relative;
 }
 #fullArticle li:before {
     content: '';
