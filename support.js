@@ -1,5 +1,663 @@
-!function(e){var a={};function t(r){if(a[r])return a[r].exports;var i=a[r]={i:r,l:!1,exports:{}};return e[r].call(i.exports,i,i.exports,t),i.l=!0,i.exports}t.m=e,t.c=a,t.d=function(e,a,r){t.o(e,a)||Object.defineProperty(e,a,{enumerable:!0,get:r})},t.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},t.t=function(e,a){if(1&a&&(e=t(e)),8&a)return e;if(4&a&&"object"==typeof e&&e&&e.__esModule)return e;var r=Object.create(null);if(t.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:e}),2&a&&"string"!=typeof e)for(var i in e)t.d(r,i,function(a){return e[a]}.bind(null,i));return r},t.n=function(e){var a=e&&e.__esModule?function(){return e.default}:function(){return e};return t.d(a,"a",a),a},t.o=function(e,a){return Object.prototype.hasOwnProperty.call(e,a)},t.p="",function(){if("undefined"!=typeof window){var e="webpack-livereload-plugin-script-093e86021c234eb6";if(!document.getElementById(e)){var a=document.createElement("script");a.id=e,a.async=!0,a.src="//"+location.hostname+":35729/livereload.js",document.getElementsByTagName("head")[0].appendChild(a)}}}(),t(t.s="./src/_includes/layout/support-page/js-injection.js")}({"./src/_includes/layout/support-page/js-injection.js":
-/*!***********************************************************!*\
-  !*** ./src/_includes/layout/support-page/js-injection.js ***!
-  \***********************************************************/
-/*! no static exports found */function(module,exports){eval('(function() {\r\n    let URL = window.ISDEV ? \'../../assets/support/\' : \'https://atomicwallet.io/assets/support/\' //for local development\r\n    function customScript() {\r\n        let imgArr = document.querySelectorAll(\'article img\');\r\n        imgArr.forEach(function(item) {\r\n            let link = document.createElement(\'a\'),\r\n                parent = item.parentNode;\r\n\r\n            if (parent.tagName !== \'A\') {\r\n                link.href = item.getAttribute(\'src\');\r\n                link.innerHTML = item.outerHTML;\r\n                link.setAttribute(\'data-featherlight\', \'image\');\r\n                item.remove();\r\n                parent.appendChild(link);\r\n            }\r\n        })\r\n\r\n        //smooth scroll to anchors\r\n        document.querySelectorAll(\'a[href^="#"]\').forEach(anchor => {\r\n            anchor.addEventListener(\'click\', function(e) {\r\n                e.preventDefault();\r\n\r\n                let id = anchor.getAttribute(\'href\')\r\n                let pos = document.querySelector(id).getClientRects()[0].y - 100 + window.pageYOffset\r\n\r\n                window.scrollTo({\r\n                    behavior: \'smooth\',\r\n                    top: pos\r\n                });\r\n            });\r\n        });\r\n\r\n        if (document.querySelector(\'#docsSearch\')) { document.querySelector(\'#docsSearch\').remove(); }\r\n        var siteRoot = \'https://atomicwallet.io\';\r\n\r\n        var assetCount = 0\r\n        var loadedAssets = 0\r\n\r\n        function assetLoaded() {\r\n            loadedAssets++\r\n            if (loadedAssets === assetCount) {\r\n                $(\'body\').addClass(\'all-ready\')\r\n            }\r\n        }\r\n\r\n        function loadScript(url, callback) {\r\n            // Add the script tag to the head\r\n            var head = document.head\r\n            var script = document.createElement(\'script\')\r\n            script.type = \'text/javascript\'\r\n            script.src = url\r\n\r\n            script.onreadystatechange = callback\r\n            script.onload = callback\r\n\r\n            // Fire the loading\r\n            head.appendChild(script)\r\n        }\r\n\r\n\r\n        // Footer subscribe form\r\n        // assetCount++\r\n        // loadScript(`${siteRoot}/js/scroll.js`, assetLoaded)\r\n\r\n\r\n        assetCount++\r\n        $(document).ready(function() {\r\n            var categories = {\r\n                \'Assets\': {\r\n                    icon: \'01\',\r\n                    gradientStart: \'#FB23FF\',\r\n                    gradientEnd: \'#BB03BF\',\r\n                    bg: \'#3A384E\',\r\n                    desc: \'\',\r\n                    href: \'https://support.atomicwallet.io/category/44-assets\',\r\n                },\r\n                \'Buy crypto\': {\r\n                    icon: \'02\',\r\n                    gradientStart: \'#FFE55A\',\r\n                    gradientEnd: \'#C47600\',\r\n                    bg: \'#8D6097\',\r\n                    desc: \'\',\r\n                    href: \'https://support.atomicwallet.io/category/61-buy-crypto\',\r\n                },\r\n                \'Exchange\': {\r\n                    icon: \'03\',\r\n                    gradientStart: \'#00E525\',\r\n                    gradientEnd: \'#007134\',\r\n                    bg: \'#75B687\',\r\n                    desc: "",\r\n                    href: \'https://support.atomicwallet.io/category/99-exchange\',\r\n                },\r\n                \'FAQ\': {\r\n                    icon: \'05\',\r\n                    gradientStart: \'#373737\',\r\n                    gradientEnd: \'#BDBABA\',\r\n                    bg: \'#3D88B8\',\r\n                    desc: "",\r\n                    href: \'https://support.atomicwallet.io/category/48-faq\',\r\n                },\r\n                \'Getting Started\': {\r\n                    icon: \'04\',\r\n                    gradientStart: \'#41D4FC\',\r\n                    gradientEnd: \'#27778D\',\r\n                    bg: \'#5CB8D2\',\r\n                    desc: \'\',\r\n                    href: \'https://support.atomicwallet.io/category/13-getting-started\',\r\n                },\r\n                \'Mobile\': {\r\n                    icon: \'06\',\r\n                    gradientStart: \'#FFC061\',\r\n                    gradientEnd: \'#BE7200\',\r\n                    bg: \'#F3B554\',\r\n                    desc: \'\',\r\n                    href: \'https://support.atomicwallet.io/category/33-mobile\',\r\n                },\r\n                \'Staking\': {\r\n                    icon: \'065\',\r\n                    gradientStart: \'#FFC061\',\r\n                    gradientEnd: \'#BE7200\',\r\n                    bg: \'#709F3A\',\r\n                    desc: \'\',\r\n                    href: \'https://support.atomicwallet.io/category/129-staking\',\r\n                },\r\n                \'Troubleshooting\': {\r\n                    icon: \'07\',\r\n                    gradientStart: \'#FF5A5A\',\r\n                    gradientEnd: \'#950101\',\r\n                    bg: \'#3A384E\',\r\n                    desc: \'\',\r\n                    href: \'https://support.atomicwallet.io/category/22-troubleshooting\',\r\n                },\r\n                \'Security\': {\r\n                    icon: \'08\',\r\n                    gradientStart: \'#1F8EFA\',\r\n                    gradientEnd: \'#064786\',\r\n                    bg: \'#8D6097\',\r\n                    desc: \'\',\r\n                    href: \'https://support.atomicwallet.io/category/17-security\',\r\n                },\r\n                \'Default\': {\r\n                    icon: \'01\',\r\n                    gradientStart: \'#556ff2\',\r\n                    gradientEnd: \'#00bfff\',\r\n                    bg: \'#8D6097\',\r\n                    desc: \'\',\r\n                    href: \'\',\r\n                },\r\n            }\r\n            // remove default nav\r\n            $(\'#mainNav\').remove()\r\n\r\n            // main\r\n            mainBlock = ""\r\n            $(\'body\').prepend(mainBlock);\r\n\r\n\r\n            // add star icons if not search page\r\n            if (!$(\'#serp\').length) {\r\n                $(\'.icon-article-doc\')\r\n                    .after(`<img class="star-icon" src="${URL}img/academy.svg" />`)\r\n                    .remove()\r\n            } else {\r\n                $(\'.icon-article-doc\').remove()\r\n            }\r\n\r\n\r\n            // remove separator\r\n            $(\'.sep\').remove()\r\n\r\n            // category icons\r\n            $(\'.category\').each(function() {\r\n                var element = $(this)\r\n                var name = element.find(\'h3\').text()\r\n                var obj = categories[name] || categories[\'Default\']\r\n\r\n                element.prepend(\r\n                    `<img class="category-icon" src="${URL}img/${obj.icon}.svg" />`\r\n                )\r\n                element.append(`<div class="category-desc">${obj.desc}</div>`)\r\n            })\r\n\r\n            // re-order categories and popular articles\r\n            var categoryList = $(\'.category-list\')\r\n            $(\'.most-pop-articles\').before(categoryList)\r\n\r\n            // Remove sort dropdown\r\n            $(\'.sort\').hide()\r\n\r\n            // Add icon to category page header\r\n            var categoryHead = $(\'#categoryHead h1\')\r\n            var categoryName = categoryHead.text()\r\n            var obj = categories[categoryName] || categories[\'Default\'];\r\n            var categoryIcon = $(\r\n                `<img class= "category-icon" src="${URL + "img/" + obj.icon}.svg"/>`\r\n            )\r\n            categoryHead.prepend(categoryIcon)\r\n\r\n            // search restuls count above title\r\n            var articlesFound = $(\'.articlesFound\')\r\n            var searchResultsHead = articlesFound.prev()\r\n            searchResultsHead.before(articlesFound)\r\n\r\n            $(\'.articleFoot\').remove()\r\n\r\n            // Append sign-off\r\n            var articleContent = $(\'#fullArticle\')\r\n            \r\n            let helpBlock = `<div class="need-help">\r\n                                <i class="fa fa-life-ring need-help__img" aria-hidden="true"></i>\r\n                                <p>\r\n                                    Need help? Want to leave us any feedback? Feel free to contact us! We provide friendly human support 24/7. \r\n                                    <br>\r\n                                    <a class="need-help__button" href="https://atomicwallet.io/support" target="_blank">Reach out to our support team</a>\r\n                                </p>\r\n                            </div>`\r\n            articleContent.append(helpBlock)\r\n            // Links inside an article should all open in a new tab\r\n            articleContent.find(\'a\').each(function(index, element) {\r\n                var link = $(element)\r\n                var href = link.attr(\'href\')\r\n                if (!/^#/.test(href)) {\r\n                    link.attr(\'target\', \'_blank\')\r\n                }\r\n            })\r\n\r\n            articleContent\r\n                .find(\'img\')\r\n                .not(\'.custom\')\r\n                .addClass(\'noBdr shadow-dark\')\r\n\r\n\r\n            var sidebar = $(\'#sidebar\')\r\n            if (sidebar.length) {\r\n                // Not the homepage\r\n\r\n                // Move search from sidebar to header\r\n                var form = sidebar.find(\'form\')\r\n                form.append(`<i class="fa fa-search"></i>`)\r\n                form\r\n                    .find(\'button span\')\r\n                    .removeClass(\'sr-only\')\r\n                    .text(\'SEARCH\')\r\n                form.find(\'button .icon-search\').remove()\r\n                form.find(\'.search-query\').attr(\'placeholder\', \'\')\r\n\r\n                // move last updated to the top\r\n                articleContent.prepend($(\'.lu\'))\r\n\r\n                // Remove sidebar header\r\n                sidebar.find(\'h3\').remove()\r\n\r\n                if (sidebar.find(\'.nav\').length === 0) {\r\n                    // search results page. Populate the sidebar\r\n                    var nav = $(\'<ul class="nav nav-list"></ul>\')\r\n                    for (var key in categories) {\r\n                        if (key === \'Default\') {\r\n                            continue\r\n                        }\r\n                        var current = categories[key]\r\n                        nav.append(`<li><div class="dot"></div><a href="${current.href}">${key}</a></li>`)\r\n                    }\r\n                    sidebar.append(nav)\r\n                }\r\n\r\n                // Sidebar dots\r\n                sidebar.find(\'li\').each(function() {\r\n                    var element = $(this)\r\n\r\n                    var elementClone = element.clone()\r\n                    elementClone.find(\'i\').remove()\r\n                    var text = elementClone\r\n                        .find(\'a\')\r\n                        .text()\r\n                        .trim()\r\n                    var obj = categories[text] || categories[\'Default\']\r\n\r\n                    var dot = $(\'<div class="dot"></div>\')\r\n                    dot.attr(\r\n                        \'style\',\r\n                        `background-color: ${obj.bg};`\r\n                    )\r\n                    element.prepend(dot)\r\n                })\r\n\r\n                // Add conditional classes\r\n                $(\'body\').addClass(\'not-home\')\r\n                $(\'#contentArea\').addClass(\'not-home-content\')\r\n                $(\'#serp-dd\').addClass(\'not-home\')\r\n            } else {\r\n                $(\'.bg-div\').append()\r\n            }\r\n\r\n            // navbar toggle\r\n            $(\'.navbar-toggler\').click(function() {\r\n                var button = $(this)\r\n                button.attr(\'aria-expanded\', \'true\')\r\n                var navbarCollapse = $(\'.navbar-collapse\')\r\n                navbarCollapse.addClass(\'show\')\r\n            })\r\n\r\n            // supported assets search filter\r\n            var analyticsTimeout\r\n            $(\'.asset-filter input\').keyup(function() {\r\n                clearTimeout(analyticsTimeout)\r\n\r\n                var input = $(this)\r\n                var str = input.val()\r\n\r\n                if (!str.length) {\r\n                    $(\'.main-tbody tr\').removeClass(\'hidden override__not-shaded override__shaded\')\r\n                    $(\'.no-results\').removeClass(\'enabled\')\r\n                    return\r\n                }\r\n\r\n                if (str.length > 2) {\r\n                    analyticsTimeout = setTimeout(function() {\r\n                        ga(\'send\', \'event\', \'Asset-Search\', str.toLowerCase().trim())\r\n                    }, 3000)\r\n                }\r\n\r\n                // exchange table\r\n                var rows = $(\'.assets-table-exchange tr\').not(\'.table-header\')\r\n                $(\'.no-results-exchange\').addClass(\'enabled\')\r\n                rows.each(function() {\r\n                    var row = $(this)\r\n                    var rowText = row.find(\'.coin-name\').text() + \' \' + row.find(\'.coin-tag\').text()\r\n                    if (rowText.toLowerCase().search(str.toLowerCase()) > -1) {\r\n                        row.removeClass(\'hidden\')\r\n                        $(\'.no-results-exchange\').removeClass(\'enabled\')\r\n                    } else {\r\n                        row.addClass(\'hidden\')\r\n                    }\r\n                })\r\n\r\n                // styling\r\n                $(\'.assets-table-exchange .main-tbody tr\')\r\n                    .not(\'.hidden\')\r\n                    .each(function(index) {\r\n                        var current = $(this)\r\n                        current.removeClass(\'override__last-row\')\r\n                        if (index % 2 === 0) {\r\n                            current.addClass(\'override__not-shaded\').removeClass(\'override__shaded\')\r\n                        } else {\r\n                            current.addClass(\'override__shaded\').removeClass(\'override__not-shaded\')\r\n                        }\r\n                    })\r\n                $(\'.assets-table-exchange .main-tbody tr\')\r\n                    .not(\'.hidden\')\r\n                    .last()\r\n                    .addClass(\'override__last-row\')\r\n\r\n                // eth table\r\n                var rows = $(\'.assets-table-eth tr\').not(\'.table-header\')\r\n                $(\'.no-results-eth\').addClass(\'enabled\')\r\n                rows.each(function() {\r\n                    var row = $(this)\r\n                    var rowText = row.find(\'.coin-name\').text() + \' \' + row.find(\'.coin-tag\').text()\r\n                    if (rowText.toLowerCase().search(str.toLowerCase()) > -1) {\r\n                        row.removeClass(\'hidden\')\r\n                        $(\'.no-results-eth\').removeClass(\'enabled\')\r\n                    } else {\r\n                        row.addClass(\'hidden\')\r\n                    }\r\n                })\r\n\r\n                // styling\r\n                $(\'.assets-table-eth .main-tbody tr\')\r\n                    .not(\'.hidden\')\r\n                    .each(function(index) {\r\n                        var current = $(this)\r\n                        current.removeClass(\'override__last-row\')\r\n                        if (index % 2 === 0) {\r\n                            current.addClass(\'override__not-shaded\').removeClass(\'override__shaded\')\r\n                        } else {\r\n                            current.addClass(\'override__shaded\').removeClass(\'override__not-shaded\')\r\n                        }\r\n                    })\r\n                $(\'.assets-table-eth .main-tbody tr\')\r\n                    .not(\'.hidden\')\r\n                    .last()\r\n                    .addClass(\'override__last-row\')\r\n            });\r\n            //articles\r\n            var articlesHtml = `\r\n               <section class="articles">\r\n                    <h2 class="articles__title">Popular Articles</h2>\r\n                    <div class="articles__content">\r\n                        <a href="https://support.atomicwallet.io/article/77-does-atomic-wallet-have-fees-to-send-or-receive-the-assets" class="articles__item">Does Atomic Wallet have fees to send or receive?</a>\r\n                        <a href="https://support.atomicwallet.io/article/18-why-is-it-important-to-use-a-vpn" class="articles__item">How to deposit funds to Atomic Wallet?</a>\r\n                        <a href="https://support.atomicwallet.io/article/12-how-to-restore-the-wallet-by-12-word-backup-phrase" class="articles__item">How to restore the wallet by 12-word backup phrase?</a>\r\n                        <a href="https://support.atomicwallet.io/article/47-how-to-buy-cryptocurrencies-with-a-credit-card" class="articles__item">How to buy cryptocurrencies with a credit card?</a>\r\n                        <a href="https://support.atomicwallet.io/article/77-does-atomic-wallet-have-fees-to-send-or-receive-the-assets" class="articles__item">Does Atomic Wallet have fees to send or receive the assets?</a>\r\n                        <a href="https://support.atomicwallet.io/article/6-how-to-install-atomic-wallet-on-your-device" class="articles__item">How to install Atomic Wallet on your device?</a>\r\n                        <a href="https://support.atomicwallet.io/article/104-can-i-cash-out-from-atomic-wallet-to-a-bank-account" class="articles__item">Can I cash out from Atomic Wallet to a bank account?</a>\r\n                        <a href="https://support.atomicwallet.io/article/35-what-is-12-word-recovery-phrase" class="articles__item">What is 12-word recovery phrase?</a>\r\n                        <a href="https://support.atomicwallet.io/article/43-why-20-xrp-is-an-unspendable-balance" class="articles__item">Why 20 XRP is an unspendable balance?</a>\r\n                        <a href="https://support.atomicwallet.io/article/62-what-is-the-fee-to-buy-cryptocurrencies" class="articles__item">What is the fee to buy cryptocurrencies?</a>\r\n\r\n                    </div>\r\n                </section>\r\n            `\r\n            // footer\r\n            var footerHtml = /* `<script src=${URL}../support-page.js><\/script>` + */ `<section class=subscribe-section> <div class=container> <div class=section-heading> <div class=title-2> Even more cool features are coming </div> </div> <form class=subscribe-form data-key=SUBSCRIBE_SECTION_KEY> <input type=hidden name=campaing_id value=103714> <input type=hidden name=action value=subscribe> <input class="subscribe-email subscribe-control" placeholder="Your email" name=email> <button class="subscribe-button subscribe-control btn-blue" type=submit> Subscribe </button> </form> </div> </section> <div class=for-mobile> <a href="https://play.google.com/store/apps/details?id=io.atomicwallet" class="mobile-app isHide" id=mobile-app-link target=_blank data-appstore=https://apps.apple.com/us/app/atomic-wallet/id1478257827> <img data-src=/images/app-logo.png alt=app-logo class="mobile-app__logo lazyload"> <div class=mobile-app__info> <div class=mobile-app__title> Bitcoin Wallet &amp; Ethereum Ripple ZIL DOT </div> <div class="mobile-app__rating rating-stars"> <div class=rating-stars__stars> <div class=rating-stars__rating style=width:90%> <div class=rating-stars__scale></div> </div> </div> </div> </div> <div class="btn-blue btn mobile-app__btn"> Download </div> </a> </div> </main> <section class=popups> <div class=modal-overlay id=popup-subscribe> <div class=modal-window> <div class=modal-window__close>&times;</div> <div class=title-3> Thank you for downloading Atomic! </div> <p class=p-18> Your support helps us build a stronger and convenient platform.<br>A lot of interesting features are coming soon! </p> <div class=title-3> Subscribe for updates </div> <form class=subscribe-form data-key=SUBSCRIBE_POPUP_KEY> <input type=hidden name=campaing_id value=107128> <input type=hidden name=action value=subscribe> <input class="subscribe-email subscribe-control" placeholder="Your email" name=email> <button class="subscribe-button subscribe-control btn-blue" type=submit> Subscribe </button> </form> </div> </div> <div class=modal-overlay id=popup-thanks> <div class=modal-window> <div class=modal-window__close>&times;</div> <div class=title-3> Be a part of Atomic Community! </div> <p class=p-18> Learn more about Atomic and explore blockchain from A to Z </p> <div class=two-buttons-container> <a href=/blog/academy class="btn-large btn-blue" target=_blank> <i class=sprite-book-outline></i> crypto guides </a> <a href=https://support.atomicwallet.io class="btn-large btn-outline" target=_blank> <i class=sprite-search></i> how to use </a> </div> <ul class=social-links> <li> <a href=https://twitter.com/atomicwallet target=_blank> <img data-src=/images/icons/tw.svg alt="Go to atomic wallet twitter" class=lazyload> </a> </li> <li> <a href=https://www.facebook.com/atomicwallet target=_blank> <img data-src=/images/icons/fb.svg alt="Go to atomic wallet facebook" class=lazyload> </a> </li> <li> <a href=https://t.me/AtomicWalletNews target=_blank> <img data-src=/images/icons/tg.svg alt="Go to atomic wallet telegram" class=lazyload> </a> </li> </ul> <p class=p-18> Join our communities to follow latest updates, giveaways and lot more! </p> </div> </div> <div class=modal-overlay id=popup-social> <div class=modal-window> <div class=modal-window__close>&times;</div> <div class=title-3> Feel free to join our social media to stay in touch with Atomic Wallet! </div> <ul class=social-links> <li> <a href=https://twitter.com/atomicwallet target=_blank> <img data-src=/images/icons/tw.svg alt="Go to atomic wallet twitter" class=lazyload> </a> </li> <li> <a href=https://www.facebook.com/atomicwallet target=_blank> <img data-src=/images/icons/fb.svg alt="Go to atomic wallet facebook" class=lazyload> </a> </li> <li> <a href=https://t.me/AtomicWalletNews target=_blank> <img data-src=/images/icons/tg.svg alt="Go to atomic wallet telegram" class=lazyload> </a> </li> </ul> <p class=p-18> These links were created just for you </p> </div> </div> <div class=modal-overlay id=popup-video> <div class=modal-window> <div class=video-card></div> </div> </div> </section> <a class=support-form-link href=/../support> <svg class=support-form-link__icon width=24 height=22 xmlns=http://www.w3.org/2000/svg><path d="M20.347 20.871l-.003-.05c0 .017.001.034.003.05zm-.243-4.278a2 2 0 0 1 .513-1.455c1.11-1.226 1.383-2.212 1.383-4.74C22 5.782 18.046 2 13.125 2h-2.25C5.954 2 2 5.78 2 10.399c0 4.675 4.01 8.626 8.875 8.626h2.25c.834 0 1.606-.207 3.212-.798a2 2 0 0 1 1.575.083l2.355 1.161-.163-2.878zM10.875 0h2.25C19.13 0 24 4.656 24 10.399c0 2.6-.25 4.257-1.9 6.08l.243 4.279c.072.845-.807 1.471-1.633 1.162l-3.682-1.816c-1.212.446-2.527.921-3.903.921h-2.25C4.869 21.025 0 16.142 0 10.4 0 4.656 4.869 0 10.875 0z" fill=#FFF></path></svg> <span>Help</span> </a> <footer class=footer> <div class=container> <div class=row> <div class="col-4 footer__left col-md-12"> <div class=footer__left-support> <div class=logo> <a href=/ > <img src=/images/logo.svg alt=site-logo> </a> </div> <div class=footer__left-copy> <a class="mail-link link" href=/support target=_blank>support@atomicwallet.io</a> <p class=footer-copy>2021 © Atomic Wallet</p> </div> </div> <ul class=social-list> <li> <a href=https://twitter.com/atomicwallet title=twitter class=social-link target=_blank> <img data-src=/images/social/twitter.svg alt="" class=lazyload> </a> </li> <li> <a href=https://t.me/AtomicWalletNews title=telegram class=social-link target=_blank> <img data-src=/images/social/telegram.svg alt="" class=lazyload> </a> </li> <li> <a href=https://www.facebook.com/atomicwallet title=facebook class=social-link target=_blank> <img data-src=/images/social/facebook.svg alt="" class=lazyload> </a> </li> <li> <a href=https://medium.com/atomic-wallet title=medium class=social-link target=_blank> <img data-src=/images/social/medium.svg alt="" class=lazyload> </a> </li> <li> <a href=https://www.youtube.com/c/AtomicWallet title=youtube class=social-link target=_blank> <img data-src=/images/social/youtube.svg alt="" class=lazyload> </a> </li> <li> <a href=https://github.com/Atomicwallet title=github class=social-link target=_blank> <img data-src=/images/social/github.svg alt="" class=lazyload> </a> </li> </ul> <div class=mobile-platforms> <a aria-label="Download wallet for android" href="https://play.google.com/store/apps/details?id=io.atomicwallet" class="mobile-item platform" data-download=android target=_blank> <div class=mobile-item__logo> <img src=/images/download/google-play-icon.svg alt=""> </div> </a> <a aria-label="Download wallet for ios" href=https://apps.apple.com/us/app/atomic-wallet/id1478257827 class="mobile-item platform" data-download=ios target=_blank> <div class=mobile-item__logo> <img src=/images/download/appstore-icon.svg alt=""> </div> </a> <a aria-label="Download wallet for android-apk" href=https://get.atomicwallet.io/download/atomicwallet.apk class="mobile-item platform" data-download=android-apk target=_blank> <div class=mobile-item__logo> <img src=/images/download/DownloadAPK.svg alt=""> </div> </a> </div> </div> <div class="col-8 footer__right col-md-12"> <div class=footer-row> <div class=footer-col> <div class=footer-title> Atomic wallet <div class=footer-title__plus></div> </div> <ul class=footer-list> <li> <a class=link href=https://support.atomicwallet.io/ > Support </a> </li> <li> <a class=link href=/assets-status> Assets Status </a> </li> <li> <a class=link href=https://t.me/AtomicWalletNews> News </a> </li> <li> <a class=link href=/press-kit> Press Kit </a> </li> <li> <a class=link href=/../blog/ > Blog </a> </li> <li> <a class=link href=/../blog/academy> Academy </a> </li> <li> <a class=link href=/voting> Coin Listing </a> </li> <li> <a class=link href=https://atomicwallet.io/blog/news/ambassador-program> Ambassador Program </a> </li> <li> <a class=link href=/contact-us> Contact Us </a> </li> <li> <a class=link href=/testimonials> Testimonials &amp; Reviews </a> </li> <li> <a class=link href=/about-us> About us </a> </li> <li> <a class=link href=/sitemap> Sitemap </a> </li> <li> <a class=link href=/careers> Careers </a> </li> </ul> </div> <div class=footer-col> <div class=footer-title> Legal <div class=footer-title__plus></div> </div> <ul class=footer-list> <li> <a class=link href=/terms-of-service> Terms of service </a> </li> <li> <a class=link href=/privacy-policy> Privacy policy </a> </li> <li> <a class=link href=/cookies-policy> Cookies policy </a> </li> <li> <a class=link href=/aml-kyc-policy> AML/KYC Policy </a> </li> <li> <a class=link href=/risk-disclosure> Risk Disclosure </a> </li> <li> <a class=link href=/licensing> EULA </a> </li> <li> <a class=link href=/anti-fraud-policy> Anti-Fraud Policy </a> </li> <li> <a class=link href=/modern-slavery-statement> Modern Slavery Statement </a> </li> <li> <a class=link href=/legal-dashboard> Legal Dashboard </a> </li> </ul> </div> <div class=footer-col> <div class=footer-title> Prices <div class=footer-title__plus></div> </div> <ul class=footer-list> <li> <a class=link href=/blog/price/bitcoin-price> Bitcoin (BTC) Price </a> </li> <li> <a class=link href=/blog/price/ethereum-price> Ethereum (ETH) Price </a> </li> <li> <a class=link href=/blog/price/ripple-price> Ripple (XRP) Price </a> </li> <li> <a class=link href=/blog/price/litecoin-price> Litecoin (LTC) Price </a> </li> <li> <a class=link href=/blog/price/eos-price> EOS Price </a> </li> <li> <a class=link href=/blog/price/neo-price> NEO Price </a> </li> <li> <a class=link href=/blog/price/tron-price> TRON (TRX) Price </a> </li> <li> <a class=link href=/blog/price/iota-price> IOTA Price </a> </li> <li> <a class=link href=/blog/price/bitcoin-cash-price> Bitcoin Cash (BCH) Price </a> </li> <li> <a class=link href=/blog/price/dogecoin-price> Dogecoin (DOGE) Price </a> </li> <li> <a class=link href=/blog/price/cardano-price> Cardano (ADA) Price </a> </li> <li> <a class=link href=/blog/price/dash-price> DASH Price </a> </li> <li> <a class=link href=/blog/price/stellar-price> Stellar (XLM) Price </a> </li> <li> <a class=link href=/blog/price/zcash-price> Zcash (ZEC) Price </a> </li> <li> <a class=link href=/blog/price/monero-price> Monero (XMR) Price </a> </li> </ul> </div> <div class=footer-col> <div class=footer-title> Assets <div class=footer-title__plus></div> </div> <ul class=footer-list> <li> <a class=link href=/bitcoin-wallet> Bitcoin (BTC) </a> </li> <li> <a class=link href=/ethereum-wallet> Ethereum (ETH) </a> </li> <li> <a class=link href=/ripple-wallet> Ripple (XRP) </a> </li> <li> <a class=link href=/litecoin-wallet> Litecoin (LTC) </a> </li> <li> <a class=link href=/eos-wallet> EOS </a> </li> <li> <a class=link href=/neo-wallet> NEO </a> </li> <li> <a class=link href=/tron-wallet> TRON (TRX) </a> </li> <li> <a class=link href=/dogecoin-wallet> Dogecoin (DOGE) </a> </li> <li> <a class=link href=/cardano-wallet> Cardano (ADA) </a> </li> <li> <a class=link href=/dash-wallet> DASH </a> </li> <li> <a class=link href=/stellar-wallet> Stellar (XLM) </a> </li> <li> <a class=link href=/zcash-wallet> Zcash (ZEC) </a> </li> </ul> </div> <div class=footer-col> <div class=footer-title> Staking <div class=footer-title__plus></div> </div> <ul class=footer-list> <li> <a class=link href=/staking> Staking </a> </li> <li> <a class=link href=/awc-staking> AWC Staking </a> </li> <li> <a class=link href=/cosmos-atom-staking> Cosmos Staking </a> </li> <li> <a class=link href=/tezos-staking> Tezos Staking </a> </li> <li> <a class=link href=/band-staking> Band Protocol Staking </a> </li> <li> <a class=link href=/neo-gas-staking> NEO GAS Staking </a> </li> <li> <a class=link href=/vechain-staking> Vechain Staking </a> </li> <li> <a class=link href=https://atomicwallet.io/blog/academy/pundi-x-staking> Pundi X Staking </a> </li> <li> <a class=link href=/zilliqa-staking> Zilliqa Staking </a> </li> <li> <a class=link href=/cardano-staking> Cardano Staking </a> </li> <li> <a class=link href=/icon-staking> ICON Staking </a> </li> <li> <a class=link href=/polkadot-staking> Polkadot Staking </a> </li> </ul> </div> </div> </div> </div> </div> </footer> `\r\n            if (document.url === "https://support.atomicwallet.io/") {\r\n                footerHtml = articlesHtml + footerHtml;\r\n            }\r\n\r\n            //header scripts\r\n            $(\'footer\').remove()\r\n            $(\'body\').append(footerHtml)\r\n\r\n            const NEWSLETTER_COOKIES_TIME = 30; // in days\r\n            const SUBSCRIBE_SECTION_KEY = "SUBSCRIBE_SECTION_KEY";\r\n            const SUBSCRIBE_POPUP_KEY = "SUBSCRIBE_POPUP_KEY";\r\n            const SUBSCRIBE_NEWSLETTER_KEY = "SUBSCRIBE_NEWSLETTER_KEY";\r\n\r\n            const newsletter = $("#newsletter-popup");\r\n            const newsletterCloseBtn = newsletter.find(".newsletter-popup__close")\r\n            const newsletter_start = $(".newsletter-popup__start");\r\n            const newsletter_finish = $(".newsletter-popup__finish");\r\n\r\n            newsletterCloseBtn.on("click", () => {\r\n                closeNewsletterSubscribe()\r\n            })\r\n\r\n            function openPopupThanks() {\r\n                document.querySelector(\'#popup-thanks\').classList.add(\'open\');\r\n                console.log("openPopupThanks")\r\n            }\r\n\r\n            function closePopupSubscribe() {\r\n                document.querySelector(\'#popup-subscribe\').classList.remove(\'open\');\r\n                console.log("closePopupSubscribe")\r\n            }\r\n\r\n            function openPopupSubscribe() {\r\n                document.querySelector(\'#popup-subscribe\').classList.add(\'open\');\r\n                console.log("openPopupSubscribe")\r\n            }\r\n\r\n            function closeNewsletterSubscribe() {\r\n                Cookies.set(\'newsletter\', \'isClosed\', {\r\n                    expires: NEWSLETTER_COOKIES_TIME\r\n                });\r\n                newsletter.addClass("close")\r\n                console.log("closeNewsletterSubscribe")\r\n            }\r\n\r\n            function newsletterNextStep() {\r\n                console.log("newsletterNextStep")\r\n                newsletter_start.fadeOut()\r\n                setTimeout(() => {\r\n                    newsletter_finish.fadeIn()\r\n                }, 100);\r\n            }\r\n            $(\'.subscribe__form\').on(\'submit\', function(e) {\r\n                e.preventDefault();\r\n                const this_key = $(this).data(\'key\');\r\n                $.ajax({\r\n                    url: \'https://atomicwallet.io/subscribe\',\r\n                    data: $(this).serialize(),\r\n                    method: \'post\',\r\n                    dataType: \'json\',\r\n                    timeout: 5000,\r\n                    error: function(err) {\r\n                        console.log(\'err\')\r\n                        alert("Please, enter your email correctly.");\r\n                        console.log(\'error\')\r\n                    },\r\n                    success: function(data) {\r\n                        console.log(\'succ\')\r\n                        if (data.error) {\r\n                            console.log(data)\r\n                            alert("Please, enter your email correctly.");\r\n                        } else {\r\n                            if (this_key === SUBSCRIBE_SECTION_KEY) {\r\n                                openPopupThanks();\r\n                            }\r\n                            if (this_key === SUBSCRIBE_POPUP_KEY) {\r\n                                closePopupSubscribe();\r\n                                openPopupThanks()\r\n                            }\r\n                            if (this_key === SUBSCRIBE_NEWSLETTER_KEY) {\r\n                                newsletterNextStep()\r\n                            }\r\n                        }\r\n                    }\r\n                });\r\n            });\r\n\r\n            let popups = document.querySelectorAll(".modal-overlay");\r\n            document.querySelectorAll(".modal-window__close").forEach(btnClose => {\r\n                btnClose.addEventListener("click", () => {\r\n                    btnClose.closest(".modal-overlay").classList.remove("open");\r\n                })\r\n            })\r\n            popups.forEach(popup => {\r\n                popup.addEventListener("click", e => {\r\n                    if (e.target.classList.contains("modal-overlay")) {\r\n                        popup.classList.remove("open");\r\n                    }\r\n                });\r\n            })\r\n            document.querySelectorAll(".laptop-video__btn").forEach(btn => {\r\n                btn.addEventListener("click", function() {\r\n                    const href = this.dataset.video;\r\n                    let iframe = document.createElement("iframe");\r\n                    iframe.setAttribute("allowfullscreen", "");\r\n                    iframe.setAttribute("frameborder", "0");\r\n                    iframe.setAttribute("allow", "autoplay");\r\n                    iframe.setAttribute("src", "https://www.youtube.com/embed/" + href + "?autoplay=1");\r\n                    document.querySelector("#popup-video .modal-window .video-card").appendChild(iframe);\r\n                })\r\n            })\r\n\r\n            // header\r\n            let mainSectionTemplate = `<section class="main">\r\n                <div class="main-wrapper">\r\n                <div class="main__left">\r\n                    <div class = "main__left-block">\r\n                        <img src = "https://atomicwallet.io/assets/support/img/lifering.svg" alt = "lifering" class = "main__left-img">\r\n                        <p class="main__title">Atomic Wallet Help Center</p>\r\n                    </div>\r\n                    <form action="/search" method="GET" id="searchBar" autocomplete="off">\r\n\r\n                        <input type="text" name="query" title="search-query" class="search-query" placeholder="How can we help you?" aria-labelledby="Search the knowledge base" value="">\r\n                        <div id="serp-dd" style="display:none;">\r\n                            <ul class="result"></ul>\r\n                        </div>\r\n\r\n                        <button type="submit" class="fa fa-search"></button>\r\n                    </form>\r\n                </div>\r\n                <div class="main__right">\r\n                    <div class = "main__right-block">\r\n                        <img src="https://atomicwallet.io/assets/support/img/exc-mark.svg" alt="mark" class = "main__right-img">\r\n                        <div class = "main__right-info">\r\n                            <div class = "main__right-date">\r\n                                \x3c!--<p class = "main__right-day">February 12, 2021</p>\r\n                                <p class = "main__right-time">Friday, @ 03:25 UTC</p>--\x3e\r\n                            </div>\r\n                            <p class = "main__right-head">We\'re facing a high volume of customer requests</p>\r\n                        </div>\r\n                    </div>\r\n                    <div class = "main__right-text">\r\n                        We experience a massive overload with requests at the moment. Our support team works tirelessly to answer all your messages, however, the waiting time can take up to 72h. We will do our best to answer all the requests and we ask for your understanding.\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            </section>`;\r\n\r\n            var headerHtml = `<header id=header class=header> <div class=container> <div class=header-row> <div class="header-col header-col-logo"> <div class=logo> <a href=/ > <img src=/images/logo.svg alt=site-logo> </a> </div> </div> <div class=for-mobile> <a aria-label="Go to membership page" href=/membership class=membership-link> <img src=/images/membership-link.svg alt=""> </a> </div> <div class="header-col header-col-menu"> <div class=dropdown> <div class=dropdown__value> Buy crypto </div> <ul class=dropdown__list> <li> <a aria-label="it is a link to /buy-bitcoin" href=/buy-bitcoin class=dropdown-item> <i class="dropdown-item__icon icon icon-btc"></i> <span class=dropdown-item__name>Buy Bitcoin</span> </a> </li> <li> <a aria-label="it is a link to /buy-ethereum" href=/buy-ethereum class=dropdown-item> <i class="dropdown-item__icon icon icon-eth"></i> <span class=dropdown-item__name>Buy Ethereum</span> </a> </li> <li> <a aria-label="it is a link to /buy-ripple" href=/buy-ripple class=dropdown-item> <i class="dropdown-item__icon icon icon-xrp"></i> <span class=dropdown-item__name>Buy Ripple</span> </a> </li> <li> <a aria-label="it is a link to /buy-litecoin" href=/buy-litecoin class=dropdown-item> <i class="dropdown-item__icon icon icon-ltc"></i> <span class=dropdown-item__name>Buy Litecoin</span> </a> </li> <li> <a aria-label="it is a link to /buy-bitcoin-cash" href=/buy-bitcoin-cash class=dropdown-item> <i class="dropdown-item__icon icon icon-bch"></i> <span class=dropdown-item__name>Buy Bitcoin Cash</span> </a> </li> <li> <a aria-label="it is a link to /buy-tron" href=/buy-tron class=dropdown-item> <i class="dropdown-item__icon icon icon-trx"></i> <span class=dropdown-item__name>Buy Tron</span> </a> </li> <li> <a aria-label="it is a link to /buy-stellar" href=/buy-stellar class=dropdown-item> <i class="dropdown-item__icon icon icon-xlm"></i> <span class=dropdown-item__name>Buy Stellar</span> </a> </li> <li> <a aria-label="it is a link to /buy-aave-lend" href=/buy-aave-lend class=dropdown-item> <i class="dropdown-item__icon icon icon-lend"></i> <span class=dropdown-item__name>Buy Aave</span> <div class=dropdown-item__badge>new</div> </a> </li> <li> <a aria-label="it is a link to /buy-dogecoin" href=/buy-dogecoin class=dropdown-item> <i class="dropdown-item__icon icon icon-doge"></i> <span class=dropdown-item__name>Buy Dogecoin</span> <div class=dropdown-item__badge>new</div> </a> </li> <li> <a aria-label="it is a link to /buy-tezos-xtz" href=/buy-tezos-xtz class=dropdown-item> <i class="dropdown-item__icon icon icon-xtz"></i> <span class=dropdown-item__name>Buy tezos</span> <div class=dropdown-item__badge>new</div> </a> </li> </ul> </div> <div class=dropdown> <div class=dropdown__value> Assets </div> <ul class=dropdown__list> <li> <a aria-label="it is a link to /prices" href=/prices class=dropdown-item> <i class="dropdown-item__icon sprite-assets"></i> <span class=dropdown-item__name>All Assets</span> </a> </li> <li> <a aria-label="it is a link to /bitcoin-wallet" href=/bitcoin-wallet class=dropdown-item> <i class="dropdown-item__icon icon icon-btc"></i> <span class=dropdown-item__name>Bitcoin</span> </a> </li> <li> <a aria-label="it is a link to /ethereum-wallet" href=/ethereum-wallet class=dropdown-item> <i class="dropdown-item__icon icon icon-eth"></i> <span class=dropdown-item__name>Ethereum</span> </a> </li> <li> <a aria-label="it is a link to /dogecoin-wallet" href=/dogecoin-wallet class=dropdown-item> <i class="dropdown-item__icon icon icon-doge"></i> <span class=dropdown-item__name>Dogecoin</span> </a> </li> <li> <a aria-label="it is a link to /polkadot-wallet" href=/polkadot-wallet class=dropdown-item> <i class="dropdown-item__icon icon icon-dot"></i> <span class=dropdown-item__name>Polkadot </span> </a> </li> <li> <a aria-label="it is a link to /ripple-wallet" href=/ripple-wallet class=dropdown-item> <i class="dropdown-item__icon icon icon-xrp"></i> <span class=dropdown-item__name>RIPPLE</span> </a> </li> <li> <a aria-label="it is a link to /litecoin-wallet" href=/litecoin-wallet class=dropdown-item> <i class="dropdown-item__icon icon icon-ltc"></i> <span class=dropdown-item__name>Litecoin</span> </a> </li> <li> <a aria-label="it is a link to /tron-wallet" href=/tron-wallet class=dropdown-item> <i class="dropdown-item__icon icon icon-trx"></i> <span class=dropdown-item__name>Tron</span> </a> </li> </ul> </div> <div class=dropdown> <div class=dropdown__value> Earn </div> <ul class=dropdown__list> <li> <a aria-label="it is a link to /token" href=/token class=dropdown-item> <i class="dropdown-item__icon icon icon-awc"></i> <span class=dropdown-item__name>AWC Token</span> </a> </li> <li> <a aria-label="it is a link to /membership" href=/membership class=dropdown-item> <i class="dropdown-item__icon sprite-membership"></i> <span class=dropdown-item__name>MEMBERSHIP</span> </a> </li> <li> <a aria-label="it is a link to /airdrop" href=/airdrop class=dropdown-item> <i class="dropdown-item__icon sprite-airdrop"></i> <span class=dropdown-item__name>Airdrop</span> </a> </li> </ul> </div> <div class=dropdown> <div class=dropdown__value> Staking </div> <ul class=dropdown__list> <li> <a aria-label="it is a link to /staking" href=/staking class=dropdown-item> <i class="dropdown-item__icon sprite-assets"></i> <span class=dropdown-item__name>All Assets</span> </a> </li> <li> <a aria-label="it is a link to /awc-staking" href=/awc-staking class=dropdown-item> <i class="dropdown-item__icon icon icon-awc"></i> <span class=dropdown-item__name>AWC</span> </a> </li> <li> <a aria-label="it is a link to /solana-staking" href=/solana-staking class=dropdown-item> <i class="dropdown-item__icon icon icon-sol"></i> <span class=dropdown-item__name>SOLANA</span> <div class=dropdown-item__badge>new</div> </a> </li> <li> <a aria-label="it is a link to /cardano-staking" href=/cardano-staking class=dropdown-item> <i class="dropdown-item__icon icon icon-ada"></i> <span class=dropdown-item__name>Cardano</span> <div class=dropdown-item__badge>new</div> </a> </li> <li> <a aria-label="it is a link to /zilliqa-staking" href=/zilliqa-staking class=dropdown-item> <i class="dropdown-item__icon icon icon-zil"></i> <span class=dropdown-item__name>Zilliqa</span> <div class=dropdown-item__badge>new</div> </a> </li> <li> <a aria-label="it is a link to /icon-staking" href=/icon-staking class=dropdown-item> <i class="dropdown-item__icon icon icon-icx"></i> <span class=dropdown-item__name>ICON</span> <div class=dropdown-item__badge>new</div> </a> </li> <li> <a aria-label="it is a link to /cosmos-atom-staking" href=/cosmos-atom-staking class=dropdown-item> <i class="dropdown-item__icon icon icon-atom"></i> <span class=dropdown-item__name>Cosmos</span> </a> </li> <li> <a aria-label="it is a link to /tezos-staking" href=/tezos-staking class=dropdown-item> <i class="dropdown-item__icon icon icon-xtz"></i> <span class=dropdown-item__name>Tezos</span> </a> </li> <li> <a aria-label="it is a link to /band-staking" href=/band-staking class=dropdown-item> <i class="dropdown-item__icon icon icon-band"></i> <span class=dropdown-item__name>Band</span> </a> </li> <li> <a aria-label="it is a link to /tron-trx-staking" href=/tron-trx-staking class=dropdown-item> <i class="dropdown-item__icon icon icon-trx"></i> <span class=dropdown-item__name>Tron</span> </a> </li> </ul> </div> <div class=dropdown> <div class=dropdown__value> SUPPORT </div> <ul class=dropdown__list> <li> <a aria-label="it is a link to /support" href=/support class=dropdown-item> <i class="dropdown-item__icon sprite-support"></i> <span class=dropdown-item__name>Contact Support</span> </a> </li> <li> <a aria-label="it is a link to https://support.atomicwallet.io" href=https://support.atomicwallet.io class=dropdown-item> <i class="dropdown-item__icon sprite-knowledge"></i> <span class=dropdown-item__name>Knowledge Base</span> </a> </li> <li> <a aria-label="it is a link to /assets-status" href=/assets-status class=dropdown-item> <i class="dropdown-item__icon sprite-assets-status"></i> <span class=dropdown-item__name>Assets Status</span> </a> </li> <li> <a aria-label="it is a link to /blockchain-explorer" href=/blockchain-explorer class=dropdown-item> <i class="dropdown-item__icon sprite-explorer"></i> <span class=dropdown-item__name>BLOCK EXPLORER</span> </a> </li> <li> <a aria-label="it is a link to /../blog/academy" href=/../blog/academy class=dropdown-item> <i class="dropdown-item__icon sprite-academy"></i> <span class=dropdown-item__name>Academy</span> </a> </li> <li> <a aria-label="it is a link to /../blog/" href=/../blog/ class=dropdown-item> <i class="dropdown-item__icon sprite-blog"></i> <span class=dropdown-item__name>Blog</span> </a> </li> </ul> </div> <div class=for-tablet> <div class=mobile-platforms> <a aria-label="Download wallet for android" href="https://play.google.com/store/apps/details?id=io.atomicwallet" class="mobile-item platform" data-download=android target=_blank> <div class=mobile-item__logo> <img src=/images/download/google-play-icon.svg alt=""> </div> </a> <a aria-label="Download wallet for ios" href=https://apps.apple.com/us/app/atomic-wallet/id1478257827 class="mobile-item platform" data-download=ios target=_blank> <div class=mobile-item__logo> <img src=/images/download/appstore-icon.svg alt=""> </div> </a> <a aria-label="Download wallet for android-apk" href=https://get.atomicwallet.io/download/atomicwallet.apk class="mobile-item platform" data-download=android-apk target=_blank> <div class=mobile-item__logo> <img src=/images/download/DownloadAPK.svg alt=""> </div> </a> </div> <ul class=social-links-2> <li> <a href=https://twitter.com/atomicwallet target=_blank> <img src=/images/icons/twitter.svg alt="Go to atomic wallet twitter"> </a> </li> <li> <a href=https://t.me/AtomicWalletNews target=_blank> <img src=/images/icons/telegram.svg alt="Go to atomic wallet telegram"> </a> </li> <li> <a href=https://www.facebook.com/atomicwallet target=_blank> <img src=/images/icons/facebook.svg alt="Go to atomic wallet facebook"> </a> </li> <li> <a href=https://www.youtube.com/channel/UCLMnUt6BBtA67eic1vRGF3g target=_blank> <img src=/images/icons/youtube.svg alt="Go to atomic wallet youtube"> </a> </li> </ul> </div> </div> <div class="header-col header-col-social"> <ul class=social-links-2> <li> <a href=https://twitter.com/atomicwallet target=_blank> <img src=/images/icons/twitter.svg alt="Go to atomic wallet twitter"> </a> </li> <li> <a href=https://t.me/AtomicWalletNews target=_blank> <img src=/images/icons/telegram.svg alt="Go to atomic wallet telegram"> </a> </li> <li> <a href=https://www.facebook.com/atomicwallet target=_blank> <img src=/images/icons/facebook.svg alt="Go to atomic wallet facebook"> </a> </li> <li> <a href=https://www.youtube.com/channel/UCLMnUt6BBtA67eic1vRGF3g target=_blank> <img src=/images/icons/youtube.svg alt="Go to atomic wallet youtube"> </a> </li> </ul> </div> <div class="header-col header-col-download"> <a href=/downloads class="btn-big btn-blue">Download</a> </div> <button aria-label="burger menu" class=burger id=burger> <span class=burger__item></span> <span class=burger__item></span> <span class=burger__item></span> </button> </div> </div> </header>` + mainSectionTemplate\r\n            $(\'body\').prepend(headerHtml);\r\n            window.initDocsWebSearch();\r\n\r\n            //footer\r\n            let trigger = document.querySelectorAll(\'.footer__title\');\r\n            trigger.forEach(function(item) {\r\n                item.addEventListener(\'click\', function() {\r\n                    this.parentNode.classList.toggle(\'active\');\r\n                })\r\n            })\r\n            //end\r\n\r\n            insertHeaderScripts();\r\n            assetLoaded();\r\n        })\r\n    }\r\n\r\n    if (window.addEventListener) {\r\n        window.addEventListener(\'load\', customScript, false)\r\n    } else if (window.attachEvent) {\r\n        window.attachEvent(\'onload\', customScript)\r\n    }\r\n})();\r\n\r\nfunction insertHeaderScripts() {\r\n    //header and footer scripts\r\n    const accordions = document.querySelectorAll(".accordion");\r\n    if (accordions.length) {\r\n        accordions.forEach(accordion => {\r\n            accordion.addEventListener("click", (event) => {\r\n                const target = event.target,\r\n                    targetContainer = target.closest(".accordionContainer"),\r\n                    targetHeader = target.closest(".accordionHeader"),\r\n                    targetContainers = [...accordion.children];\r\n    \r\n                if (targetContainer && targetHeader) {\r\n                    targetContainer.classList.toggle("active");\r\n    \r\n                    targetContainers.forEach((elem) => {\r\n                        if (elem != targetContainer) {\r\n                            elem.classList.remove("active");\r\n                        }\r\n                    });\r\n                }\r\n            });\r\n        });\r\n    }\r\n\r\n    const burger = document.getElementById("burger");\r\n    const header = document.getElementById("header");\r\n    burger.addEventListener("click", () => {\r\n        header.classList.toggle("open");\r\n    });\r\n\r\n    const footerColumns = document.querySelectorAll(".footer-col");\r\n    footerColumns.forEach( item => {\r\n        let title = item.querySelector(".footer-title");\r\n        title.addEventListener("click",function(){\r\n            footerColumns.forEach((elem) => {\r\n                if( elem == item ){\r\n                    item.classList.toggle("open");\r\n                }else{\r\n                    elem.classList.remove("open");\r\n                }\r\n            });\r\n        })\r\n    });\r\n    \r\n    const headerDropdowns = document.querySelectorAll(".dropdown");\r\n    headerDropdowns.forEach( item => {\r\n        item.addEventListener("click",function(){\r\n            headerDropdowns.forEach((elem) => {\r\n                if( elem == item ){\r\n                    item.classList.toggle("open");\r\n                }else{\r\n                    elem.classList.remove("open");\r\n                }\r\n            });\r\n        })\r\n    })\r\n\r\n    if (document.querySelector(\'.articleList\') || document.querySelector(\'#fullArticle\')) {\r\n        document.body.classList.add(\'body--article\');\r\n    } else {\r\n        document.body.classList.add(\'body--home\');\r\n    }\r\n\r\n    function loadScript(src, callback) {\r\n        let script = document.createElement(\'script\');\r\n        script.src = src;\r\n\r\n        script.onload = () => callback();\r\n\r\n        document.body.append(script);\r\n    }\r\n\r\n    function loadSecond() {\r\n        $(\'body\').append(\r\n            \'<script type="text/javascript">!function(e,t,n){function a(){var e=t.getElementsByTagName("script")[0],n=t.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://beacon-v2.helpscout.net",e.parentNode.insertBefore(n,e)}if(e.Beacon=n=function(t,n,a){e.Beacon.readyQueue.push({method:t,options:n,data:a})},n.readyQueue=[],"complete"===t.readyState)return a();e.attachEvent?e.attachEvent("onload",a):e.addEventListener("load",a,!1)}(window,document,window.Beacon||function(){});<\/script>\\n\' +\r\n            \'<script type="text/javascript">window.Beacon(\\\'init\\\', \\\'e947e766-402f-44b0-8f02-3ed79a72263c\\\')<\/script>\')\r\n    }\r\n    $(\'body\').append(\'<script src="https://atomicwallet.io/assets/support/subscribe_forms/js/common.js"><\/script>\');\r\n}\r\nlet recapchaRemoving = setInterval(() => {\r\n    let div = document.querySelector(\'.g-recaptcha-bubble-arrow\')\r\n    if (div) {\r\n        div.parentNode.remove()\r\n        clearInterval(recapchaRemoving)\r\n    }\r\n}, 1000)\n\n//# sourceURL=webpack:///./src/_includes/layout/support-page/js-injection.js?')}});
+(function() {
+    let URL = window.ISDEV ? '../../assets/support/' : 'https://atomicwallet.io/assets/support/' //for local development
+    function customScript() {
+        let imgArr = document.querySelectorAll('article img');
+        imgArr.forEach(function(item) {
+            let link = document.createElement('a'),
+                parent = item.parentNode;
+
+            if (parent.tagName !== 'A') {
+                link.href = item.getAttribute('src');
+                link.innerHTML = item.outerHTML;
+                link.setAttribute('data-featherlight', 'image');
+                item.remove();
+                parent.appendChild(link);
+            }
+        })
+
+        //smooth scroll to anchors
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                let id = anchor.getAttribute('href')
+                let pos = document.querySelector(id).getClientRects()[0].y - 100 + window.pageYOffset
+
+                window.scrollTo({
+                    behavior: 'smooth',
+                    top: pos
+                });
+            });
+        });
+
+        if (document.querySelector('#docsSearch')) { document.querySelector('#docsSearch').remove(); }
+        var siteRoot = 'https://atomicwallet.io';
+
+        var assetCount = 0
+        var loadedAssets = 0
+
+        function assetLoaded() {
+            loadedAssets++
+            if (loadedAssets === assetCount) {
+                $('body').addClass('all-ready')
+            }
+        }
+
+        function loadScript(url, callback) {
+            // Add the script tag to the head
+            var head = document.head
+            var script = document.createElement('script')
+            script.type = 'text/javascript'
+            script.src = url
+
+            script.onreadystatechange = callback
+            script.onload = callback
+
+            // Fire the loading
+            head.appendChild(script)
+        }
+
+
+        // Footer subscribe form
+        // assetCount++
+        // loadScript(`${siteRoot}/js/scroll.js`, assetLoaded)
+
+
+        assetCount++
+        $(document).ready(function() {
+            var categories = {
+                'Assets': {
+                    icon: '01',
+                    gradientStart: '#FB23FF',
+                    gradientEnd: '#BB03BF',
+                    bg: '#3A384E',
+                    desc: '',
+                    href: 'https://support.atomicwallet.io/category/44-assets',
+                },
+                'Buy crypto': {
+                    icon: '02',
+                    gradientStart: '#FFE55A',
+                    gradientEnd: '#C47600',
+                    bg: '#8D6097',
+                    desc: '',
+                    href: 'https://support.atomicwallet.io/category/61-buy-crypto',
+                },
+                'Exchange': {
+                    icon: '03',
+                    gradientStart: '#00E525',
+                    gradientEnd: '#007134',
+                    bg: '#75B687',
+                    desc: "",
+                    href: 'https://support.atomicwallet.io/category/99-exchange',
+                },
+                'FAQ': {
+                    icon: '05',
+                    gradientStart: '#373737',
+                    gradientEnd: '#BDBABA',
+                    bg: '#3D88B8',
+                    desc: "",
+                    href: 'https://support.atomicwallet.io/category/48-faq',
+                },
+                'Getting Started': {
+                    icon: '04',
+                    gradientStart: '#41D4FC',
+                    gradientEnd: '#27778D',
+                    bg: '#5CB8D2',
+                    desc: '',
+                    href: 'https://support.atomicwallet.io/category/13-getting-started',
+                },
+                'Mobile': {
+                    icon: '06',
+                    gradientStart: '#FFC061',
+                    gradientEnd: '#BE7200',
+                    bg: '#F3B554',
+                    desc: '',
+                    href: 'https://support.atomicwallet.io/category/33-mobile',
+                },
+                'Staking': {
+                    icon: '065',
+                    gradientStart: '#FFC061',
+                    gradientEnd: '#BE7200',
+                    bg: '#709F3A',
+                    desc: '',
+                    href: 'https://support.atomicwallet.io/category/129-staking',
+                },
+                'Troubleshooting': {
+                    icon: '07',
+                    gradientStart: '#FF5A5A',
+                    gradientEnd: '#950101',
+                    bg: '#3A384E',
+                    desc: '',
+                    href: 'https://support.atomicwallet.io/category/22-troubleshooting',
+                },
+                'Security': {
+                    icon: '08',
+                    gradientStart: '#1F8EFA',
+                    gradientEnd: '#064786',
+                    bg: '#8D6097',
+                    desc: '',
+                    href: 'https://support.atomicwallet.io/category/17-security',
+                },
+                'Default': {
+                    icon: '01',
+                    gradientStart: '#556ff2',
+                    gradientEnd: '#00bfff',
+                    bg: '#8D6097',
+                    desc: '',
+                    href: '',
+                },
+            }
+            // remove default nav
+            $('#mainNav').remove()
+
+            // main
+            mainBlock = ""
+            $('body').prepend(mainBlock);
+
+
+            // add star icons if not search page
+            if (!$('#serp').length) {
+                $('.icon-article-doc')
+                    .after(`<img class="star-icon" src="${URL}img/academy.svg" />`)
+                    .remove()
+            } else {
+                $('.icon-article-doc').remove()
+            }
+
+
+            // remove separator
+            $('.sep').remove()
+
+            // category icons
+            $('.category').each(function() {
+                var element = $(this)
+                var name = element.find('h3').text()
+                var obj = categories[name] || categories['Default']
+
+                element.prepend(
+                    `<img class="category-icon" src="${URL}img/${obj.icon}.svg" />`
+                )
+                element.append(`<div class="category-desc">${obj.desc}</div>`)
+            })
+
+            // re-order categories and popular articles
+            var categoryList = $('.category-list')
+            $('.most-pop-articles').before(categoryList)
+
+            // Remove sort dropdown
+            $('.sort').hide()
+
+            // Add icon to category page header
+            var categoryHead = $('#categoryHead h1')
+            var categoryName = categoryHead.text()
+            var obj = categories[categoryName] || categories['Default'];
+            var categoryIcon = $(
+                `<img class= "category-icon" src="${URL + "img/" + obj.icon}.svg"/>`
+            )
+            categoryHead.prepend(categoryIcon)
+
+            // search restuls count above title
+            var articlesFound = $('.articlesFound')
+            var searchResultsHead = articlesFound.prev()
+            searchResultsHead.before(articlesFound)
+
+            $('.articleFoot').remove()
+
+            // Append sign-off
+            var articleContent = $('#fullArticle')
+            
+            let helpBlock = `<div class="need-help">
+                                <i class="fa fa-life-ring need-help__img" aria-hidden="true"></i>
+                                <p>
+                                    Need help? Want to leave us any feedback? Feel free to contact us! We provide friendly human support 24/7. 
+                                    <br>
+                                    <a class="need-help__button" href="https://atomicwallet.io/support" target="_blank">Reach out to our support team</a>
+                                </p>
+                            </div>`
+            articleContent.append(helpBlock)
+            // Links inside an article should all open in a new tab
+            articleContent.find('a').each(function(index, element) {
+                var link = $(element)
+                var href = link.attr('href')
+                if (!/^#/.test(href)) {
+                    link.attr('target', '_blank')
+                }
+            })
+
+            articleContent
+                .find('img')
+                .not('.custom')
+                .addClass('noBdr shadow-dark')
+
+
+            var sidebar = $('#sidebar')
+            if (sidebar.length) {
+                // Not the homepage
+
+                // Move search from sidebar to header
+                var form = sidebar.find('form')
+                form.append(`<i class="fa fa-search"></i>`)
+                form
+                    .find('button span')
+                    .removeClass('sr-only')
+                    .text('SEARCH')
+                form.find('button .icon-search').remove()
+                form.find('.search-query').attr('placeholder', '')
+
+                // move last updated to the top
+                articleContent.prepend($('.lu'))
+
+                // Remove sidebar header
+                sidebar.find('h3').remove()
+
+                if (sidebar.find('.nav').length === 0) {
+                    // search results page. Populate the sidebar
+                    var nav = $('<ul class="nav nav-list"></ul>')
+                    for (var key in categories) {
+                        if (key === 'Default') {
+                            continue
+                        }
+                        var current = categories[key]
+                        nav.append(`<li><div class="dot"></div><a href="${current.href}">${key}</a></li>`)
+                    }
+                    sidebar.append(nav)
+                }
+
+                // Sidebar dots
+                sidebar.find('li').each(function() {
+                    var element = $(this)
+
+                    var elementClone = element.clone()
+                    elementClone.find('i').remove()
+                    var text = elementClone
+                        .find('a')
+                        .text()
+                        .trim()
+                    var obj = categories[text] || categories['Default']
+
+                    var dot = $('<div class="dot"></div>')
+                    dot.attr(
+                        'style',
+                        `background-color: ${obj.bg};`
+                    )
+                    element.prepend(dot)
+                })
+
+                // Add conditional classes
+                $('body').addClass('not-home')
+                $('#contentArea').addClass('not-home-content')
+                $('#serp-dd').addClass('not-home')
+            } else {
+                $('.bg-div').append()
+            }
+
+            // navbar toggle
+            $('.navbar-toggler').click(function() {
+                var button = $(this)
+                button.attr('aria-expanded', 'true')
+                var navbarCollapse = $('.navbar-collapse')
+                navbarCollapse.addClass('show')
+            })
+
+            // supported assets search filter
+            var analyticsTimeout
+            $('.asset-filter input').keyup(function() {
+                clearTimeout(analyticsTimeout)
+
+                var input = $(this)
+                var str = input.val()
+
+                if (!str.length) {
+                    $('.main-tbody tr').removeClass('hidden override__not-shaded override__shaded')
+                    $('.no-results').removeClass('enabled')
+                    return
+                }
+
+                if (str.length > 2) {
+                    analyticsTimeout = setTimeout(function() {
+                        ga('send', 'event', 'Asset-Search', str.toLowerCase().trim())
+                    }, 3000)
+                }
+
+                // exchange table
+                var rows = $('.assets-table-exchange tr').not('.table-header')
+                $('.no-results-exchange').addClass('enabled')
+                rows.each(function() {
+                    var row = $(this)
+                    var rowText = row.find('.coin-name').text() + ' ' + row.find('.coin-tag').text()
+                    if (rowText.toLowerCase().search(str.toLowerCase()) > -1) {
+                        row.removeClass('hidden')
+                        $('.no-results-exchange').removeClass('enabled')
+                    } else {
+                        row.addClass('hidden')
+                    }
+                })
+
+                // styling
+                $('.assets-table-exchange .main-tbody tr')
+                    .not('.hidden')
+                    .each(function(index) {
+                        var current = $(this)
+                        current.removeClass('override__last-row')
+                        if (index % 2 === 0) {
+                            current.addClass('override__not-shaded').removeClass('override__shaded')
+                        } else {
+                            current.addClass('override__shaded').removeClass('override__not-shaded')
+                        }
+                    })
+                $('.assets-table-exchange .main-tbody tr')
+                    .not('.hidden')
+                    .last()
+                    .addClass('override__last-row')
+
+                // eth table
+                var rows = $('.assets-table-eth tr').not('.table-header')
+                $('.no-results-eth').addClass('enabled')
+                rows.each(function() {
+                    var row = $(this)
+                    var rowText = row.find('.coin-name').text() + ' ' + row.find('.coin-tag').text()
+                    if (rowText.toLowerCase().search(str.toLowerCase()) > -1) {
+                        row.removeClass('hidden')
+                        $('.no-results-eth').removeClass('enabled')
+                    } else {
+                        row.addClass('hidden')
+                    }
+                })
+
+                // styling
+                $('.assets-table-eth .main-tbody tr')
+                    .not('.hidden')
+                    .each(function(index) {
+                        var current = $(this)
+                        current.removeClass('override__last-row')
+                        if (index % 2 === 0) {
+                            current.addClass('override__not-shaded').removeClass('override__shaded')
+                        } else {
+                            current.addClass('override__shaded').removeClass('override__not-shaded')
+                        }
+                    })
+                $('.assets-table-eth .main-tbody tr')
+                    .not('.hidden')
+                    .last()
+                    .addClass('override__last-row')
+            });
+            //articles
+            var articlesHtml = `
+               <section class="articles">
+                    <h2 class="articles__title">Popular Articles</h2>
+                    <div class="articles__content">
+                        <a href="https://support.atomicwallet.io/article/77-does-atomic-wallet-have-fees-to-send-or-receive-the-assets" class="articles__item">Does Atomic Wallet have fees to send or receive?</a>
+                        <a href="https://support.atomicwallet.io/article/18-why-is-it-important-to-use-a-vpn" class="articles__item">How to deposit funds to Atomic Wallet?</a>
+                        <a href="https://support.atomicwallet.io/article/12-how-to-restore-the-wallet-by-12-word-backup-phrase" class="articles__item">How to restore the wallet by 12-word backup phrase?</a>
+                        <a href="https://support.atomicwallet.io/article/47-how-to-buy-cryptocurrencies-with-a-credit-card" class="articles__item">How to buy cryptocurrencies with a credit card?</a>
+                        <a href="https://support.atomicwallet.io/article/77-does-atomic-wallet-have-fees-to-send-or-receive-the-assets" class="articles__item">Does Atomic Wallet have fees to send or receive the assets?</a>
+                        <a href="https://support.atomicwallet.io/article/6-how-to-install-atomic-wallet-on-your-device" class="articles__item">How to install Atomic Wallet on your device?</a>
+                        <a href="https://support.atomicwallet.io/article/104-can-i-cash-out-from-atomic-wallet-to-a-bank-account" class="articles__item">Can I cash out from Atomic Wallet to a bank account?</a>
+                        <a href="https://support.atomicwallet.io/article/35-what-is-12-word-recovery-phrase" class="articles__item">What is 12-word recovery phrase?</a>
+                        <a href="https://support.atomicwallet.io/article/43-why-20-xrp-is-an-unspendable-balance" class="articles__item">Why 20 XRP is an unspendable balance?</a>
+                        <a href="https://support.atomicwallet.io/article/62-what-is-the-fee-to-buy-cryptocurrencies" class="articles__item">What is the fee to buy cryptocurrencies?</a>
+
+                    </div>
+                </section>
+            `
+            // footer
+            var footerHtml = /* `<script src=${URL}../support-page.js></script>` + */ `<section class=subscribe-section> <div class=container> <div class=section-heading> <div class=title-2> Even more cool features are coming </div> </div> <form class=subscribe-form data-key=SUBSCRIBE_SECTION_KEY> <input type=hidden name=campaing_id value=103714> <input type=hidden name=action value=subscribe> <input class="subscribe-email subscribe-control" placeholder="Your email" name=email> <button class="subscribe-button subscribe-control btn-blue" type=submit> Subscribe </button> </form> </div> </section> <div class=for-mobile> <a href="https://play.google.com/store/apps/details?id=io.atomicwallet" class="mobile-app isHide" id=mobile-app-link target=_blank data-appstore=https://apps.apple.com/us/app/atomic-wallet/id1478257827> <img data-src=/images/app-logo.png alt=app-logo class="mobile-app__logo lazyload"> <div class=mobile-app__info> <div class=mobile-app__title> Bitcoin Wallet &amp; Ethereum Ripple ZIL DOT </div> <div class="mobile-app__rating rating-stars"> <div class=rating-stars__stars> <div class=rating-stars__rating style=width:90%> <div class=rating-stars__scale></div> </div> </div> </div> </div> <div class="btn-blue btn mobile-app__btn"> Download </div> </a> </div> </main> <section class=popups> <div class=modal-overlay id=popup-subscribe> <div class=modal-window> <div class=modal-window__close>&times;</div> <div class=title-3> Thank you for downloading Atomic! </div> <p class=p-18> Your support helps us build a stronger and convenient platform.<br>A lot of interesting features are coming soon! </p> <div class=title-3> Subscribe for updates </div> <form class=subscribe-form data-key=SUBSCRIBE_POPUP_KEY> <input type=hidden name=campaing_id value=107128> <input type=hidden name=action value=subscribe> <input class="subscribe-email subscribe-control" placeholder="Your email" name=email> <button class="subscribe-button subscribe-control btn-blue" type=submit> Subscribe </button> </form> </div> </div> <div class=modal-overlay id=popup-thanks> <div class=modal-window> <div class=modal-window__close>&times;</div> <div class=title-3> Be a part of Atomic Community! </div> <p class=p-18> Learn more about Atomic and explore blockchain from A to Z </p> <div class=two-buttons-container> <a href=/blog/academy class="btn-large btn-blue" target=_blank> <i class=sprite-book-outline></i> crypto guides </a> <a href=https://support.atomicwallet.io class="btn-large btn-outline" target=_blank> <i class=sprite-search></i> how to use </a> </div> <ul class=social-links> <li> <a href=https://twitter.com/atomicwallet target=_blank> <img data-src=/images/icons/tw.svg alt="Go to atomic wallet twitter" class=lazyload> </a> </li> <li> <a href=https://www.facebook.com/atomicwallet target=_blank> <img data-src=/images/icons/fb.svg alt="Go to atomic wallet facebook" class=lazyload> </a> </li> <li> <a href=https://t.me/AtomicWalletNews target=_blank> <img data-src=/images/icons/tg.svg alt="Go to atomic wallet telegram" class=lazyload> </a> </li> </ul> <p class=p-18> Join our communities to follow latest updates, giveaways and lot more! </p> </div> </div> <div class=modal-overlay id=popup-social> <div class=modal-window> <div class=modal-window__close>&times;</div> <div class=title-3> Feel free to join our social media to stay in touch with Atomic Wallet! </div> <ul class=social-links> <li> <a href=https://twitter.com/atomicwallet target=_blank> <img data-src=/images/icons/tw.svg alt="Go to atomic wallet twitter" class=lazyload> </a> </li> <li> <a href=https://www.facebook.com/atomicwallet target=_blank> <img data-src=/images/icons/fb.svg alt="Go to atomic wallet facebook" class=lazyload> </a> </li> <li> <a href=https://t.me/AtomicWalletNews target=_blank> <img data-src=/images/icons/tg.svg alt="Go to atomic wallet telegram" class=lazyload> </a> </li> </ul> <p class=p-18> These links were created just for you </p> </div> </div> <div class=modal-overlay id=popup-video> <div class=modal-window> <div class=video-card></div> </div> </div> </section> <a class=support-form-link href=/../support> <svg class=support-form-link__icon width=24 height=22 xmlns=http://www.w3.org/2000/svg><path d="M20.347 20.871l-.003-.05c0 .017.001.034.003.05zm-.243-4.278a2 2 0 0 1 .513-1.455c1.11-1.226 1.383-2.212 1.383-4.74C22 5.782 18.046 2 13.125 2h-2.25C5.954 2 2 5.78 2 10.399c0 4.675 4.01 8.626 8.875 8.626h2.25c.834 0 1.606-.207 3.212-.798a2 2 0 0 1 1.575.083l2.355 1.161-.163-2.878zM10.875 0h2.25C19.13 0 24 4.656 24 10.399c0 2.6-.25 4.257-1.9 6.08l.243 4.279c.072.845-.807 1.471-1.633 1.162l-3.682-1.816c-1.212.446-2.527.921-3.903.921h-2.25C4.869 21.025 0 16.142 0 10.4 0 4.656 4.869 0 10.875 0z" fill=#FFF></path></svg> <span>Help</span> </a> <footer class=footer> <div class=container> <div class=row> <div class="col-4 footer__left col-md-12"> <div class=footer__left-support> <div class=logo> <a href=/ > <img src=/images/logo.svg alt=site-logo> </a> </div> <div class=footer__left-copy> <a class="mail-link link" href=/support target=_blank>support@atomicwallet.io</a> <p class=footer-copy>2021 © Atomic Wallet</p> </div> </div> <ul class=social-list> <li> <a href=https://twitter.com/atomicwallet title=twitter class=social-link target=_blank> <img data-src=/images/social/twitter.svg alt="" class=lazyload> </a> </li> <li> <a href=https://t.me/AtomicWalletNews title=telegram class=social-link target=_blank> <img data-src=/images/social/telegram.svg alt="" class=lazyload> </a> </li> <li> <a href=https://www.facebook.com/atomicwallet title=facebook class=social-link target=_blank> <img data-src=/images/social/facebook.svg alt="" class=lazyload> </a> </li> <li> <a href=https://medium.com/atomic-wallet title=medium class=social-link target=_blank> <img data-src=/images/social/medium.svg alt="" class=lazyload> </a> </li> <li> <a href=https://www.youtube.com/c/AtomicWallet title=youtube class=social-link target=_blank> <img data-src=/images/social/youtube.svg alt="" class=lazyload> </a> </li> <li> <a href=https://github.com/Atomicwallet title=github class=social-link target=_blank> <img data-src=/images/social/github.svg alt="" class=lazyload> </a> </li> </ul> <div class=mobile-platforms> <a aria-label="Download wallet for android" href="https://play.google.com/store/apps/details?id=io.atomicwallet" class="mobile-item platform" data-download=android target=_blank> <div class=mobile-item__logo> <img src=/images/download/google-play-icon.svg alt=""> </div> </a> <a aria-label="Download wallet for ios" href=https://apps.apple.com/us/app/atomic-wallet/id1478257827 class="mobile-item platform" data-download=ios target=_blank> <div class=mobile-item__logo> <img src=/images/download/appstore-icon.svg alt=""> </div> </a> <a aria-label="Download wallet for android-apk" href=https://get.atomicwallet.io/download/atomicwallet.apk class="mobile-item platform" data-download=android-apk target=_blank> <div class=mobile-item__logo> <img src=/images/download/DownloadAPK.svg alt=""> </div> </a> </div> </div> <div class="col-8 footer__right col-md-12"> <div class=footer-row> <div class=footer-col> <div class=footer-title> Atomic wallet <div class=footer-title__plus></div> </div> <ul class=footer-list> <li> <a class=link href=https://support.atomicwallet.io/ > Support </a> </li> <li> <a class=link href=/assets-status> Assets Status </a> </li> <li> <a class=link href=https://t.me/AtomicWalletNews> News </a> </li> <li> <a class=link href=/press-kit> Press Kit </a> </li> <li> <a class=link href=/../blog/ > Blog </a> </li> <li> <a class=link href=/../blog/academy> Academy </a> </li> <li> <a class=link href=/voting> Coin Listing </a> </li> <li> <a class=link href=https://atomicwallet.io/blog/news/ambassador-program> Ambassador Program </a> </li> <li> <a class=link href=/contact-us> Contact Us </a> </li> <li> <a class=link href=/testimonials> Testimonials &amp; Reviews </a> </li> <li> <a class=link href=/about-us> About us </a> </li> <li> <a class=link href=/sitemap> Sitemap </a> </li> <li> <a class=link href=/careers> Careers </a> </li> </ul> </div> <div class=footer-col> <div class=footer-title> Legal <div class=footer-title__plus></div> </div> <ul class=footer-list> <li> <a class=link href=/terms-of-service> Terms of service </a> </li> <li> <a class=link href=/privacy-policy> Privacy policy </a> </li> <li> <a class=link href=/cookies-policy> Cookies policy </a> </li> <li> <a class=link href=/aml-kyc-policy> AML/KYC Policy </a> </li> <li> <a class=link href=/risk-disclosure> Risk Disclosure </a> </li> <li> <a class=link href=/licensing> EULA </a> </li> <li> <a class=link href=/anti-fraud-policy> Anti-Fraud Policy </a> </li> <li> <a class=link href=/modern-slavery-statement> Modern Slavery Statement </a> </li> <li> <a class=link href=/legal-dashboard> Legal Dashboard </a> </li> </ul> </div> <div class=footer-col> <div class=footer-title> Prices <div class=footer-title__plus></div> </div> <ul class=footer-list> <li> <a class=link href=/blog/price/bitcoin-price> Bitcoin (BTC) Price </a> </li> <li> <a class=link href=/blog/price/ethereum-price> Ethereum (ETH) Price </a> </li> <li> <a class=link href=/blog/price/ripple-price> Ripple (XRP) Price </a> </li> <li> <a class=link href=/blog/price/litecoin-price> Litecoin (LTC) Price </a> </li> <li> <a class=link href=/blog/price/eos-price> EOS Price </a> </li> <li> <a class=link href=/blog/price/neo-price> NEO Price </a> </li> <li> <a class=link href=/blog/price/tron-price> TRON (TRX) Price </a> </li> <li> <a class=link href=/blog/price/iota-price> IOTA Price </a> </li> <li> <a class=link href=/blog/price/bitcoin-cash-price> Bitcoin Cash (BCH) Price </a> </li> <li> <a class=link href=/blog/price/dogecoin-price> Dogecoin (DOGE) Price </a> </li> <li> <a class=link href=/blog/price/cardano-price> Cardano (ADA) Price </a> </li> <li> <a class=link href=/blog/price/dash-price> DASH Price </a> </li> <li> <a class=link href=/blog/price/stellar-price> Stellar (XLM) Price </a> </li> <li> <a class=link href=/blog/price/zcash-price> Zcash (ZEC) Price </a> </li> <li> <a class=link href=/blog/price/monero-price> Monero (XMR) Price </a> </li> </ul> </div> <div class=footer-col> <div class=footer-title> Assets <div class=footer-title__plus></div> </div> <ul class=footer-list> <li> <a class=link href=/bitcoin-wallet> Bitcoin (BTC) </a> </li> <li> <a class=link href=/ethereum-wallet> Ethereum (ETH) </a> </li> <li> <a class=link href=/ripple-wallet> Ripple (XRP) </a> </li> <li> <a class=link href=/litecoin-wallet> Litecoin (LTC) </a> </li> <li> <a class=link href=/eos-wallet> EOS </a> </li> <li> <a class=link href=/neo-wallet> NEO </a> </li> <li> <a class=link href=/tron-wallet> TRON (TRX) </a> </li> <li> <a class=link href=/dogecoin-wallet> Dogecoin (DOGE) </a> </li> <li> <a class=link href=/cardano-wallet> Cardano (ADA) </a> </li> <li> <a class=link href=/dash-wallet> DASH </a> </li> <li> <a class=link href=/stellar-wallet> Stellar (XLM) </a> </li> <li> <a class=link href=/zcash-wallet> Zcash (ZEC) </a> </li> </ul> </div> <div class=footer-col> <div class=footer-title> Staking <div class=footer-title__plus></div> </div> <ul class=footer-list> <li> <a class=link href=/staking> Staking </a> </li> <li> <a class=link href=/awc-staking> AWC Staking </a> </li> <li> <a class=link href=/cosmos-atom-staking> Cosmos Staking </a> </li> <li> <a class=link href=/tezos-staking> Tezos Staking </a> </li> <li> <a class=link href=/band-staking> Band Protocol Staking </a> </li> <li> <a class=link href=/neo-gas-staking> NEO GAS Staking </a> </li> <li> <a class=link href=/vechain-staking> Vechain Staking </a> </li> <li> <a class=link href=https://atomicwallet.io/blog/academy/pundi-x-staking> Pundi X Staking </a> </li> <li> <a class=link href=/zilliqa-staking> Zilliqa Staking </a> </li> <li> <a class=link href=/cardano-staking> Cardano Staking </a> </li> <li> <a class=link href=/icon-staking> ICON Staking </a> </li> <li> <a class=link href=/polkadot-staking> Polkadot Staking </a> </li> </ul> </div> </div> </div> </div> </div> </footer> `
+            if (document.url === "https://support.atomicwallet.io/") {
+                footerHtml = articlesHtml + footerHtml;
+            }
+
+            //header scripts
+            $('footer').remove()
+            $('body').append(footerHtml)
+
+            const NEWSLETTER_COOKIES_TIME = 30; // in days
+            const SUBSCRIBE_SECTION_KEY = "SUBSCRIBE_SECTION_KEY";
+            const SUBSCRIBE_POPUP_KEY = "SUBSCRIBE_POPUP_KEY";
+            const SUBSCRIBE_NEWSLETTER_KEY = "SUBSCRIBE_NEWSLETTER_KEY";
+
+            const newsletter = $("#newsletter-popup");
+            const newsletterCloseBtn = newsletter.find(".newsletter-popup__close")
+            const newsletter_start = $(".newsletter-popup__start");
+            const newsletter_finish = $(".newsletter-popup__finish");
+
+            newsletterCloseBtn.on("click", () => {
+                closeNewsletterSubscribe()
+            })
+
+            function openPopupThanks() {
+                document.querySelector('#popup-thanks').classList.add('open');
+                console.log("openPopupThanks")
+            }
+
+            function closePopupSubscribe() {
+                document.querySelector('#popup-subscribe').classList.remove('open');
+                console.log("closePopupSubscribe")
+            }
+
+            function openPopupSubscribe() {
+                document.querySelector('#popup-subscribe').classList.add('open');
+                console.log("openPopupSubscribe")
+            }
+
+            function closeNewsletterSubscribe() {
+                Cookies.set('newsletter', 'isClosed', {
+                    expires: NEWSLETTER_COOKIES_TIME
+                });
+                newsletter.addClass("close")
+                console.log("closeNewsletterSubscribe")
+            }
+
+            function newsletterNextStep() {
+                console.log("newsletterNextStep")
+                newsletter_start.fadeOut()
+                setTimeout(() => {
+                    newsletter_finish.fadeIn()
+                }, 100);
+            }
+            $('.subscribe__form').on('submit', function(e) {
+                e.preventDefault();
+                const this_key = $(this).data('key');
+                $.ajax({
+                    url: 'https://atomicwallet.io/subscribe',
+                    data: $(this).serialize(),
+                    method: 'post',
+                    dataType: 'json',
+                    timeout: 5000,
+                    error: function(err) {
+                        console.log('err')
+                        alert("Please, enter your email correctly.");
+                        console.log('error')
+                    },
+                    success: function(data) {
+                        console.log('succ')
+                        if (data.error) {
+                            console.log(data)
+                            alert("Please, enter your email correctly.");
+                        } else {
+                            if (this_key === SUBSCRIBE_SECTION_KEY) {
+                                openPopupThanks();
+                            }
+                            if (this_key === SUBSCRIBE_POPUP_KEY) {
+                                closePopupSubscribe();
+                                openPopupThanks()
+                            }
+                            if (this_key === SUBSCRIBE_NEWSLETTER_KEY) {
+                                newsletterNextStep()
+                            }
+                        }
+                    }
+                });
+            });
+
+            let popups = document.querySelectorAll(".modal-overlay");
+            document.querySelectorAll(".modal-window__close").forEach(btnClose => {
+                btnClose.addEventListener("click", () => {
+                    btnClose.closest(".modal-overlay").classList.remove("open");
+                })
+            })
+            popups.forEach(popup => {
+                popup.addEventListener("click", e => {
+                    if (e.target.classList.contains("modal-overlay")) {
+                        popup.classList.remove("open");
+                    }
+                });
+            })
+            document.querySelectorAll(".laptop-video__btn").forEach(btn => {
+                btn.addEventListener("click", function() {
+                    const href = this.dataset.video;
+                    let iframe = document.createElement("iframe");
+                    iframe.setAttribute("allowfullscreen", "");
+                    iframe.setAttribute("frameborder", "0");
+                    iframe.setAttribute("allow", "autoplay");
+                    iframe.setAttribute("src", "https://www.youtube.com/embed/" + href + "?autoplay=1");
+                    document.querySelector("#popup-video .modal-window .video-card").appendChild(iframe);
+                })
+            })
+
+            // header
+            let mainSectionTemplate = `<section class="main">
+                <div class="main-wrapper">
+                <div class="main__left">
+                    <div class = "main__left-block">
+                        <img src = "https://atomicwallet.io/assets/support/img/lifering.svg" alt = "lifering" class = "main__left-img">
+                        <p class="main__title">Atomic Wallet Help Center</p>
+                    </div>
+                    <form action="/search" method="GET" id="searchBar" autocomplete="off">
+
+                        <input type="text" name="query" title="search-query" class="search-query" placeholder="How can we help you?" aria-labelledby="Search the knowledge base" value="">
+                        <div id="serp-dd" style="display:none;">
+                            <ul class="result"></ul>
+                        </div>
+
+                        <button type="submit" class="fa fa-search"></button>
+                    </form>
+                </div>
+                <div class="main__right">
+                    <div class = "main__right-block">
+                        <img src="https://atomicwallet.io/assets/support/img/exc-mark.svg" alt="mark" class = "main__right-img">
+                        <div class = "main__right-info">
+                            <div class = "main__right-date">
+                                <!--<p class = "main__right-day">February 12, 2021</p>
+                                <p class = "main__right-time">Friday, @ 03:25 UTC</p>-->
+                            </div>
+                            <p class = "main__right-head">We're facing a high volume of customer requests</p>
+                        </div>
+                    </div>
+                    <div class = "main__right-text">
+                        We experience a massive overload with requests at the moment. Our support team works tirelessly to answer all your messages, however, the waiting time can take up to 72h. We will do our best to answer all the requests and we ask for your understanding.
+                    </div>
+                </div>
+            </div>
+            </section>`;
+
+            var headerHtml = `<header id=header class=header> <div class=container> <div class=header-row> <div class="header-col header-col-logo"> <div class=logo> <a href=/ > <img src=/images/logo.svg alt=site-logo> </a> </div> </div> <div class=for-mobile> <a aria-label="Go to membership page" href=/membership class=membership-link> <img src=/images/membership-link.svg alt=""> </a> </div> <div class="header-col header-col-menu"> <div class=dropdown> <div class=dropdown__value> Buy crypto </div> <ul class=dropdown__list> <li> <a aria-label="it is a link to /buy-bitcoin" href=/buy-bitcoin class=dropdown-item> <i class="dropdown-item__icon icon icon-btc"></i> <span class=dropdown-item__name>Buy Bitcoin</span> </a> </li> <li> <a aria-label="it is a link to /buy-ethereum" href=/buy-ethereum class=dropdown-item> <i class="dropdown-item__icon icon icon-eth"></i> <span class=dropdown-item__name>Buy Ethereum</span> </a> </li> <li> <a aria-label="it is a link to /buy-ripple" href=/buy-ripple class=dropdown-item> <i class="dropdown-item__icon icon icon-xrp"></i> <span class=dropdown-item__name>Buy Ripple</span> </a> </li> <li> <a aria-label="it is a link to /buy-litecoin" href=/buy-litecoin class=dropdown-item> <i class="dropdown-item__icon icon icon-ltc"></i> <span class=dropdown-item__name>Buy Litecoin</span> </a> </li> <li> <a aria-label="it is a link to /buy-bitcoin-cash" href=/buy-bitcoin-cash class=dropdown-item> <i class="dropdown-item__icon icon icon-bch"></i> <span class=dropdown-item__name>Buy Bitcoin Cash</span> </a> </li> <li> <a aria-label="it is a link to /buy-tron" href=/buy-tron class=dropdown-item> <i class="dropdown-item__icon icon icon-trx"></i> <span class=dropdown-item__name>Buy Tron</span> </a> </li> <li> <a aria-label="it is a link to /buy-stellar" href=/buy-stellar class=dropdown-item> <i class="dropdown-item__icon icon icon-xlm"></i> <span class=dropdown-item__name>Buy Stellar</span> </a> </li> <li> <a aria-label="it is a link to /buy-aave-lend" href=/buy-aave-lend class=dropdown-item> <i class="dropdown-item__icon icon icon-lend"></i> <span class=dropdown-item__name>Buy Aave</span> <div class=dropdown-item__badge>new</div> </a> </li> <li> <a aria-label="it is a link to /buy-dogecoin" href=/buy-dogecoin class=dropdown-item> <i class="dropdown-item__icon icon icon-doge"></i> <span class=dropdown-item__name>Buy Dogecoin</span> <div class=dropdown-item__badge>new</div> </a> </li> <li> <a aria-label="it is a link to /buy-tezos-xtz" href=/buy-tezos-xtz class=dropdown-item> <i class="dropdown-item__icon icon icon-xtz"></i> <span class=dropdown-item__name>Buy tezos</span> <div class=dropdown-item__badge>new</div> </a> </li> </ul> </div> <div class=dropdown> <div class=dropdown__value> Assets </div> <ul class=dropdown__list> <li> <a aria-label="it is a link to /prices" href=/prices class=dropdown-item> <i class="dropdown-item__icon sprite-assets"></i> <span class=dropdown-item__name>All Assets</span> </a> </li> <li> <a aria-label="it is a link to /bitcoin-wallet" href=/bitcoin-wallet class=dropdown-item> <i class="dropdown-item__icon icon icon-btc"></i> <span class=dropdown-item__name>Bitcoin</span> </a> </li> <li> <a aria-label="it is a link to /ethereum-wallet" href=/ethereum-wallet class=dropdown-item> <i class="dropdown-item__icon icon icon-eth"></i> <span class=dropdown-item__name>Ethereum</span> </a> </li> <li> <a aria-label="it is a link to /dogecoin-wallet" href=/dogecoin-wallet class=dropdown-item> <i class="dropdown-item__icon icon icon-doge"></i> <span class=dropdown-item__name>Dogecoin</span> </a> </li> <li> <a aria-label="it is a link to /polkadot-wallet" href=/polkadot-wallet class=dropdown-item> <i class="dropdown-item__icon icon icon-dot"></i> <span class=dropdown-item__name>Polkadot </span> </a> </li> <li> <a aria-label="it is a link to /ripple-wallet" href=/ripple-wallet class=dropdown-item> <i class="dropdown-item__icon icon icon-xrp"></i> <span class=dropdown-item__name>RIPPLE</span> </a> </li> <li> <a aria-label="it is a link to /litecoin-wallet" href=/litecoin-wallet class=dropdown-item> <i class="dropdown-item__icon icon icon-ltc"></i> <span class=dropdown-item__name>Litecoin</span> </a> </li> <li> <a aria-label="it is a link to /tron-wallet" href=/tron-wallet class=dropdown-item> <i class="dropdown-item__icon icon icon-trx"></i> <span class=dropdown-item__name>Tron</span> </a> </li> </ul> </div> <div class=dropdown> <div class=dropdown__value> Earn </div> <ul class=dropdown__list> <li> <a aria-label="it is a link to /token" href=/token class=dropdown-item> <i class="dropdown-item__icon icon icon-awc"></i> <span class=dropdown-item__name>AWC Token</span> </a> </li> <li> <a aria-label="it is a link to /membership" href=/membership class=dropdown-item> <i class="dropdown-item__icon sprite-membership"></i> <span class=dropdown-item__name>MEMBERSHIP</span> </a> </li> <li> <a aria-label="it is a link to /airdrop" href=/airdrop class=dropdown-item> <i class="dropdown-item__icon sprite-airdrop"></i> <span class=dropdown-item__name>Airdrop</span> </a> </li> </ul> </div> <div class=dropdown> <div class=dropdown__value> Staking </div> <ul class=dropdown__list> <li> <a aria-label="it is a link to /staking" href=/staking class=dropdown-item> <i class="dropdown-item__icon sprite-assets"></i> <span class=dropdown-item__name>All Assets</span> </a> </li> <li> <a aria-label="it is a link to /awc-staking" href=/awc-staking class=dropdown-item> <i class="dropdown-item__icon icon icon-awc"></i> <span class=dropdown-item__name>AWC</span> </a> </li> <li> <a aria-label="it is a link to /solana-staking" href=/solana-staking class=dropdown-item> <i class="dropdown-item__icon icon icon-sol"></i> <span class=dropdown-item__name>SOLANA</span> <div class=dropdown-item__badge>new</div> </a> </li> <li> <a aria-label="it is a link to /cardano-staking" href=/cardano-staking class=dropdown-item> <i class="dropdown-item__icon icon icon-ada"></i> <span class=dropdown-item__name>Cardano</span> <div class=dropdown-item__badge>new</div> </a> </li> <li> <a aria-label="it is a link to /zilliqa-staking" href=/zilliqa-staking class=dropdown-item> <i class="dropdown-item__icon icon icon-zil"></i> <span class=dropdown-item__name>Zilliqa</span> <div class=dropdown-item__badge>new</div> </a> </li> <li> <a aria-label="it is a link to /icon-staking" href=/icon-staking class=dropdown-item> <i class="dropdown-item__icon icon icon-icx"></i> <span class=dropdown-item__name>ICON</span> <div class=dropdown-item__badge>new</div> </a> </li> <li> <a aria-label="it is a link to /cosmos-atom-staking" href=/cosmos-atom-staking class=dropdown-item> <i class="dropdown-item__icon icon icon-atom"></i> <span class=dropdown-item__name>Cosmos</span> </a> </li> <li> <a aria-label="it is a link to /tezos-staking" href=/tezos-staking class=dropdown-item> <i class="dropdown-item__icon icon icon-xtz"></i> <span class=dropdown-item__name>Tezos</span> </a> </li> <li> <a aria-label="it is a link to /band-staking" href=/band-staking class=dropdown-item> <i class="dropdown-item__icon icon icon-band"></i> <span class=dropdown-item__name>Band</span> </a> </li> <li> <a aria-label="it is a link to /tron-trx-staking" href=/tron-trx-staking class=dropdown-item> <i class="dropdown-item__icon icon icon-trx"></i> <span class=dropdown-item__name>Tron</span> </a> </li> </ul> </div> <div class=dropdown> <div class=dropdown__value> SUPPORT </div> <ul class=dropdown__list> <li> <a aria-label="it is a link to /support" href=/support class=dropdown-item> <i class="dropdown-item__icon sprite-support"></i> <span class=dropdown-item__name>Contact Support</span> </a> </li> <li> <a aria-label="it is a link to https://support.atomicwallet.io" href=https://support.atomicwallet.io class=dropdown-item> <i class="dropdown-item__icon sprite-knowledge"></i> <span class=dropdown-item__name>Knowledge Base</span> </a> </li> <li> <a aria-label="it is a link to /assets-status" href=/assets-status class=dropdown-item> <i class="dropdown-item__icon sprite-assets-status"></i> <span class=dropdown-item__name>Assets Status</span> </a> </li> <li> <a aria-label="it is a link to /blockchain-explorer" href=/blockchain-explorer class=dropdown-item> <i class="dropdown-item__icon sprite-explorer"></i> <span class=dropdown-item__name>BLOCK EXPLORER</span> </a> </li> <li> <a aria-label="it is a link to /../blog/academy" href=/../blog/academy class=dropdown-item> <i class="dropdown-item__icon sprite-academy"></i> <span class=dropdown-item__name>Academy</span> </a> </li> <li> <a aria-label="it is a link to /../blog/" href=/../blog/ class=dropdown-item> <i class="dropdown-item__icon sprite-blog"></i> <span class=dropdown-item__name>Blog</span> </a> </li> </ul> </div> <div class=for-tablet> <div class=mobile-platforms> <a aria-label="Download wallet for android" href="https://play.google.com/store/apps/details?id=io.atomicwallet" class="mobile-item platform" data-download=android target=_blank> <div class=mobile-item__logo> <img src=/images/download/google-play-icon.svg alt=""> </div> </a> <a aria-label="Download wallet for ios" href=https://apps.apple.com/us/app/atomic-wallet/id1478257827 class="mobile-item platform" data-download=ios target=_blank> <div class=mobile-item__logo> <img src=/images/download/appstore-icon.svg alt=""> </div> </a> <a aria-label="Download wallet for android-apk" href=https://get.atomicwallet.io/download/atomicwallet.apk class="mobile-item platform" data-download=android-apk target=_blank> <div class=mobile-item__logo> <img src=/images/download/DownloadAPK.svg alt=""> </div> </a> </div> <ul class=social-links-2> <li> <a href=https://twitter.com/atomicwallet target=_blank> <img src=/images/icons/twitter.svg alt="Go to atomic wallet twitter"> </a> </li> <li> <a href=https://t.me/AtomicWalletNews target=_blank> <img src=/images/icons/telegram.svg alt="Go to atomic wallet telegram"> </a> </li> <li> <a href=https://www.facebook.com/atomicwallet target=_blank> <img src=/images/icons/facebook.svg alt="Go to atomic wallet facebook"> </a> </li> <li> <a href=https://www.youtube.com/channel/UCLMnUt6BBtA67eic1vRGF3g target=_blank> <img src=/images/icons/youtube.svg alt="Go to atomic wallet youtube"> </a> </li> </ul> </div> </div> <div class="header-col header-col-social"> <ul class=social-links-2> <li> <a href=https://twitter.com/atomicwallet target=_blank> <img src=/images/icons/twitter.svg alt="Go to atomic wallet twitter"> </a> </li> <li> <a href=https://t.me/AtomicWalletNews target=_blank> <img src=/images/icons/telegram.svg alt="Go to atomic wallet telegram"> </a> </li> <li> <a href=https://www.facebook.com/atomicwallet target=_blank> <img src=/images/icons/facebook.svg alt="Go to atomic wallet facebook"> </a> </li> <li> <a href=https://www.youtube.com/channel/UCLMnUt6BBtA67eic1vRGF3g target=_blank> <img src=/images/icons/youtube.svg alt="Go to atomic wallet youtube"> </a> </li> </ul> </div> <div class="header-col header-col-download"> <a href=/downloads class="btn-big btn-blue">Download</a> </div> <button aria-label="burger menu" class=burger id=burger> <span class=burger__item></span> <span class=burger__item></span> <span class=burger__item></span> </button> </div> </div> </header>` + mainSectionTemplate
+            $('body').prepend(headerHtml);
+            window.initDocsWebSearch();
+
+            //footer
+            let trigger = document.querySelectorAll('.footer__title');
+            trigger.forEach(function(item) {
+                item.addEventListener('click', function() {
+                    this.parentNode.classList.toggle('active');
+                })
+            })
+            //end
+
+            insertHeaderScripts();
+            assetLoaded();
+        })
+    }
+
+    if (window.addEventListener) {
+        window.addEventListener('load', customScript, false)
+    } else if (window.attachEvent) {
+        window.attachEvent('onload', customScript)
+    }
+})();
+
+function insertHeaderScripts() {
+    //header and footer scripts
+    const accordions = document.querySelectorAll(".accordion");
+    if (accordions.length) {
+        accordions.forEach(accordion => {
+            accordion.addEventListener("click", (event) => {
+                const target = event.target,
+                    targetContainer = target.closest(".accordionContainer"),
+                    targetHeader = target.closest(".accordionHeader"),
+                    targetContainers = [...accordion.children];
+    
+                if (targetContainer && targetHeader) {
+                    targetContainer.classList.toggle("active");
+    
+                    targetContainers.forEach((elem) => {
+                        if (elem != targetContainer) {
+                            elem.classList.remove("active");
+                        }
+                    });
+                }
+            });
+        });
+    }
+
+    const burger = document.getElementById("burger");
+    const header = document.getElementById("header");
+    burger.addEventListener("click", () => {
+        header.classList.toggle("open");
+    });
+
+    const footerColumns = document.querySelectorAll(".footer-col");
+    footerColumns.forEach( item => {
+        let title = item.querySelector(".footer-title");
+        title.addEventListener("click",function(){
+            footerColumns.forEach((elem) => {
+                if( elem == item ){
+                    item.classList.toggle("open");
+                }else{
+                    elem.classList.remove("open");
+                }
+            });
+        })
+    });
+    
+    const headerDropdowns = document.querySelectorAll(".dropdown");
+    headerDropdowns.forEach( item => {
+        item.addEventListener("click",function(){
+            headerDropdowns.forEach((elem) => {
+                if( elem == item ){
+                    item.classList.toggle("open");
+                }else{
+                    elem.classList.remove("open");
+                }
+            });
+        })
+    })
+
+    if (document.querySelector('.articleList') || document.querySelector('#fullArticle')) {
+        document.body.classList.add('body--article');
+    } else {
+        document.body.classList.add('body--home');
+    }
+
+    function loadScript(src, callback) {
+        let script = document.createElement('script');
+        script.src = src;
+
+        script.onload = () => callback();
+
+        document.body.append(script);
+    }
+
+    function loadSecond() {
+        $('body').append(
+            '<script type="text/javascript">!function(e,t,n){function a(){var e=t.getElementsByTagName("script")[0],n=t.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://beacon-v2.helpscout.net",e.parentNode.insertBefore(n,e)}if(e.Beacon=n=function(t,n,a){e.Beacon.readyQueue.push({method:t,options:n,data:a})},n.readyQueue=[],"complete"===t.readyState)return a();e.attachEvent?e.attachEvent("onload",a):e.addEventListener("load",a,!1)}(window,document,window.Beacon||function(){});</script>\n' +
+            '<script type="text/javascript">window.Beacon(\'init\', \'e947e766-402f-44b0-8f02-3ed79a72263c\')</script>')
+    }
+    $('body').append('<script src="https://atomicwallet.io/assets/support/subscribe_forms/js/common.js"></script>');
+}
+let recapchaRemoving = setInterval(() => {
+    let div = document.querySelector('.g-recaptcha-bubble-arrow')
+    if (div) {
+        div.parentNode.remove()
+        clearInterval(recapchaRemoving)
+    }
+}, 1000)
