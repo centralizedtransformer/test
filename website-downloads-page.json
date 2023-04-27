@@ -1,0 +1,210 @@
+{
+  "releases": [
+    {
+      "title": "Desktop Release 2.70.4",
+      "date": "26/04/2023",
+      "features": [
+        "Injective (INJ) staking is now supported. Stake your coins with up to 17% APY."
+      ]
+    },
+    {
+      "title": "Desktop Release 2.69.2",
+      "date": "10/04/2023",
+      "features": [
+        "Arbitrum L2 network has been integrated to Atomic Wallet.",
+        "Manage & Exchange Arbitrum ARB token in a secure way.",
+        "FlareDrops is now supported. Activate the drop in the wallet and enjoy monthly FLR drops.",
+        "Injective (INJ) coin is now supported."
+      ],
+      "fixes": [
+        "TRX-USDT sending has been fixed."
+      ]
+    },
+    {
+      "title": "Desktop Release 2.68.8",
+      "date": "06/04/2023",
+      "features": [
+        "Optimism L2 network has been integrated to Atomic Wallet.",
+        "Manage & Exchange Optimism OP token in a secure way.",
+        "MATIC ERC20 is available for staking.",
+        "Filecoin EVM is now supported.",
+        "Fake copies of genuine tokens don't have prices and charts now."
+      ],
+      "fixes": [
+        "TRX-USDT sending has been fixed."
+      ]
+    },
+    {
+      "title": "Desktop Release 2.68.7",
+      "date": "05/04/2023",
+      "features": [
+        "Optimism L2 network has been integrated to Atomic Wallet.",
+        "Manage & Exchange Optimism OP token in a secure way.",
+        "MATIC ERC20 is available for staking.",
+        "Filecoin EVM is now supported.",
+        "Fake copies of genuine tokens don't have prices and charts now."
+      ],
+      "fixes": [
+        "XRP sending has been fixed.",
+        "The issue with app crashing on Windows7 has been resolved."
+      ]
+    },
+    {
+      "title": "Desktop Release 2.68.5",
+      "date": "30/03/2023",
+      "features": [
+        "Optimism L2 network has been integrated to Atomic Wallet.",
+        "Manage & Exchange Optimism OP token in a secure way.",
+        "MATIC ERC20 is available for staking.",
+        "Filecoin EVM is now supported.",
+        "Fake copies of genuine tokens don't have prices and charts now."
+      ],
+      "fixes": [
+        "Internet connection established alert is reflected again."
+      ]
+    },
+    {
+      "title": "Desktop Release 2.67.3",
+      "date": "13/03/2023",
+      "features": [
+        "FET coin and staking are now supported. Stake your coins with up to 11 % APY.",
+        "AE was delisted.",
+        "Charts loading process has been optimized."
+      ],
+      "fixes": [
+        "Staking balances displaying bug is fixed."
+      ]
+    },
+    {
+      "title": "Desktop Release 2.66.4",
+      "date": "02/03/2023",
+      "features": [
+        "LUNA staking is now supported. Stake your coins with up to 7% APY.",
+        "FTM NFTs are now supported. View and manage your tokens in one place.",
+        "XMR View Key button is added to the XMR page. You can now easily contact support regarding your XMR issues.",
+        "NEO2 and GAS2 were delisted."
+      ],
+      "fixes": [
+        "Staking balances displaying bug is fixed."
+      ]
+    },
+    {
+      "title": "Desktop Release 2.66.2",
+      "date": "28/02/2023",
+      "features": [
+        "LUNA staking is now supported. Stake your coins with up to 7% APY.",
+        "FTM NFTs are now supported. View and manage your tokens in one place.",
+        "XMR View Key button is added to the XMR page. You can now easily contact support regarding your XMR issues.",
+        "NEO2 and GAS2 were delisted."
+      ],
+      "fixes": [
+        "Monero XMR balance, history, sending and exchanging fixed.",
+        "Flare staking rewards balance fixed."
+      ]
+    },
+    {
+      "title": "Desktop Release 2.65.3",
+      "date": "14/02/2023",
+      "features": [
+        "Toncoin TON and KAVA are now supported. Manage your coins in a secure way.",
+        "KAVA staking is now supported. Stake your coins with up to 19% APY.",
+        "FTM tokens are now supported.",
+        "SMART and GRS were delisted."
+      ],
+      "fixes": [
+        "Monero XMR balance, history, sending and exchanging fixed.",
+        "Flare staking rewards balance fixed."
+      ]
+    },
+    {
+      "title": "Desktop Release 2.65.1",
+      "date": "13/02/2023",
+      "features": [
+        "Toncoin TON and KAVA are now supported. Manage your coins in a secure way.",
+        "KAVA staking is now supported. Stake your coins with up to 19% APY.",
+        "FTM tokens are now supported.",
+        "SMART and GRS were delisted."
+      ],
+      "fixes": [
+        "Monero XMR balance, history, sending and exchanging fixed.",
+        "USDT-TRX sending fixed."
+      ]
+    },
+    {
+      "title": "Desktop Release 2.65.0",
+      "date": "07/02/2023",
+      "features": [
+        "Flare FLR staking supported. Stake your coins with up to 4,2% APY."
+      ],
+      "fixes": [
+        "USDT-TRX sending fixed."
+      ]
+    },
+    {
+      "title": "Desktop Release 2.64.1",
+      "date": "30/01/2023",
+      "features": [
+        "Flare FLR staking supported. Stake your coins with up to 4,2% APY.",
+        "Fantom network FTM supported. Manage your coins in a secure way.",
+        "Cosmos ATOM and Osmosis OSMO staking APY updated to 22%.",
+        "Membership rules improved. Receive cashback for exchanges by holding AWC BSC, AWC ETH, and AWC BNB."
+      ],
+      "fixes": [
+        "Aptos APT sending fixed.",
+        "Cosmos ATOM staking rewards are now shown in the wallet.",
+        "Hedera HBAR transaction history fixed."
+      ]
+    },
+    {
+      "title": "Desktop Release 2.63.0",
+      "date": "11/01/2023",
+      "features": [
+        "Flare network is now supported. Manage FLR and other tokens in a secure way."
+      ],
+      "fixes": [
+        "MATIC Polygon and DOT sending to domains fixed."
+      ]
+    },
+    {
+      "title": "Desktop Release 2.62.3",
+      "date": "26/12/2022",
+      "features": [
+        "Osmosis is now supported. Exchange and stake your OSMO with up to 11% APY.",
+        "AVAX-C NFTs are now supported. View and manage your tokens in one place.",
+        "Fake copies of genuine tokens now don't have price and chart."
+      ],
+      "fixes": [
+        "LUNC balance is fixed."
+      ]
+    },
+    {
+      "title": "Desktop Release 2.61.1",
+      "date": "13/12/2022",
+      "features": [
+        "HBAR staking is now supported. Stake your coins with up to 6.5% APY."
+      ],
+      "fixes": [
+        "NEAR transaction history is fixed.",
+        "SOL and ICX staking is fixed.",
+        "Incoming transaction notifications are shown in the wallet."
+      ]
+    },
+    {
+      "title": "Desktop Release 2.60.3",
+      "date": "05/12/2022",
+      "features": [
+        "For Windows users only: we have updated the app certificate, this is a standard procedure. Click on the 'Run anyway' button when launching your app.",
+        "Aptos APT is now supported. Manage your coins in a secure way.",
+        "Lido ETH staking is now supported. Stake your coins with up to 5.5% APY.",
+        "EGLD staking is now supported. Stake your coins with up to 12.21% APY.",
+        "New coins list is added to the exchange page.",
+        "NFT images that are stored in a decentralized file system (IPFS) are now displayed in the wallet."
+      ],
+      "fixes": [
+        "TRX tokens sending is fixed.",
+        "NEAR balance when sending is fixed.",
+        "SOL transaction history is fixed."
+      ]
+    }
+  ]
+}
